@@ -20,11 +20,13 @@ export default function Hero() {
             {hero.badge}
           </div>
 
-          <h1 className="text-balance mx-auto max-w-4xl text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl">
-            {hero.title}{" "}
-            <span className="bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="mx-auto max-w-4xl text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl">
+            {hero.title}
+            <br className="hidden sm:block" />{" "}
+            <span className="whitespace-nowrap bg-gradient-to-r from-accent to-emerald-400 bg-clip-text text-transparent">
               {hero.titleAccent}
-            </span>{" "}
+            </span>
+            <br />
             {hero.titleAfter}
           </h1>
 
@@ -35,9 +37,6 @@ export default function Hero() {
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Button href={brand.appUrl} className="w-full sm:w-auto">
               {brand.ctaPrimary} →
-            </Button>
-            <Button href="#demo" variant="secondary" className="w-full sm:w-auto">
-              {hero.secondaryCta}
             </Button>
           </div>
           <p className="mt-3 text-sm text-neutral-400">{hero.ctaSupport}</p>

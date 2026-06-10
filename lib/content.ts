@@ -5,7 +5,7 @@
 
 export const brand = {
   name: "StockReadGPT", // ← swap the project name here once decided
-  ctaPrimary: "Get started free",
+  ctaPrimary: "Get started",
   appUrl: "#", // ← point to app.yourdomain.com / signup later
 };
 
@@ -24,9 +24,8 @@ export const hero = {
   titleAccent: "in seconds.",
   titleAfter: "Just upload a screenshot.",
   subtitle:
-    "Reads any US or UK stock chart and tells you exactly what to do — the trend, the key levels, and a clear plan backed by probabilities. No more second-guessing TradingView.",
-  ctaSupport: "Sign up in 2 minutes. No card required.",
-  secondaryCta: "See a live analysis",
+    "Reads any stock chart and tells you exactly what to do — the trend, the key levels, and a clear plan backed by probabilities. No more second-guessing TradingView.",
+  ctaSupport: "Cancel anytime — no lock-in.",
   proof: "Join 1,300+ profitable traders",
 };
 
@@ -78,7 +77,7 @@ export const howItWorks = {
       n: "02",
       title: "Upload your first chart",
       time: "instant",
-      body: "Drop in a screenshot of any US or UK stock. In seconds you get the trend, key zones, and two scenarios — bullish and bearish — each with a probability.",
+      body: "Drop in a screenshot of any stock. In seconds you get the trend, key zones, and two scenarios — bullish and bearish — each with a probability.",
     },
     {
       n: "03",
@@ -195,7 +194,7 @@ export const faq = {
     },
     {
       q: "Which markets and assets does it cover?",
-      a: "US and UK stocks — NYSE, NASDAQ and the LSE — with live price, fundamentals, analyst targets and news.",
+      a: "Stocks across the major global exchanges, with live price, fundamentals, analyst targets and news.",
     },
     {
       q: "How fast is an analysis?",
@@ -211,7 +210,7 @@ export const faq = {
 export const finalCta = {
   title: "Ready to read the market like a pro?",
   subtitle:
-    "Join 1,300+ traders who turned guesswork into a data-backed plan. Your first analysis is free.",
+    "Join 1,300+ traders who turned guesswork into a data-backed plan.",
 };
 
 export const footer = {
