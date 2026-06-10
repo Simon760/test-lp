@@ -30,8 +30,7 @@ export const hero = {
 };
 
 export const trustBar = {
-  caption: "Real-time data from the markets that matter",
-  items: ["NYSE", "NASDAQ", "LSE", "Polygon", "Financial Modeling Prep"],
+  caption: "The markets and platforms serious traders follow",
 };
 
 export const valueProps = {
