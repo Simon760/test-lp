@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer utilities {
+  .glass {
+    backdrop-filter: saturate(180%) blur(12px);
+  }
+  /* subtle dotted texture */
+  .dot-grid {
+    background-image: radial-gradient(rgba(10, 11, 13, 0.04) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d6d8dc;
+  border-radius: 9999px;
+  border: 3px solid white;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c2c5ca;
+}
