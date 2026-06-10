@@ -32,20 +32,19 @@ function MockTechnical() {
         ))}
       </div>
       <div className="space-y-2">
-        <div className="flex items-center justify-between rounded-xl border border-accent/30 bg-accent/10 px-3 py-2">
-          <span className="text-sm font-semibold text-white">Signal</span>
-          <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-bold text-white">● BUY</span>
+        <div className="flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/15 px-3 py-2.5 shadow-[0_0_24px_-8px_rgba(21,163,74,0.6)]">
+          <GCheck />
+          <span className="text-sm font-bold text-white">TP1</span>
+          <span className="ml-auto text-base font-extrabold text-accent">+$176</span>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <p className="text-[11px] text-neutral-400">Target</p>
-          <p className="text-sm font-bold text-accent">$196.50 · +3.7%</p>
+        <div className="flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/15 px-3 py-2.5 shadow-[0_0_24px_-8px_rgba(21,163,74,0.6)]">
+          <GCheck />
+          <span className="text-sm font-bold text-white">TP2</span>
+          <span className="ml-auto text-base font-extrabold text-accent">+$356</span>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <p className="text-[11px] text-neutral-400">Confidence</p>
-          <div className="mt-1.5 flex items-center gap-2">
-            <MiniBar value={78} />
-            <span className="text-xs font-bold text-white">78</span>
-          </div>
+        <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+          <span className="text-xs text-neutral-400">Signal · Confidence</span>
+          <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-bold text-white">BUY · 78%</span>
         </div>
       </div>
     </div>
@@ -152,6 +151,7 @@ function MockScenarios() {
           </defs>
         </svg>
         <span className="absolute right-3 top-3 rounded-full bg-accent/20 px-2 py-0.5 text-[11px] font-bold text-accent">Bull 68%</span>
+        <span className="absolute left-3 top-3 rounded-full border border-accent/40 bg-accent/15 px-2.5 py-0.5 text-[11px] font-extrabold text-accent shadow-[0_0_18px_-6px_rgba(21,163,74,0.6)]">+$257</span>
       </div>
       <div className="grid grid-cols-2 gap-2">
         <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
