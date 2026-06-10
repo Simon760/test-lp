@@ -13,7 +13,7 @@ export default function HowItWorks() {
         </div>
 
         <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {howItWorks.steps.map((step, i) => (
+          {howItWorks.steps.map((step) => (
             <div
               key={step.n}
               className="group relative overflow-hidden rounded-3xl border border-neutral-200 bg-white p-7 shadow-soft transition-all duration-300 ease-out hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-card"
@@ -42,14 +42,6 @@ export default function HowItWorks() {
                 </svg>
               </h3>
               <p className="relative mt-2 text-[15px] leading-relaxed text-neutral-600">{step.body}</p>
-
-              {i < howItWorks.steps.length - 1 && (
-                <div className="absolute -right-3 top-1/2 z-10 hidden h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-400 transition-colors duration-300 group-hover:border-accent group-hover:text-accent md:flex">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </div>
-              )}
             </div>
           ))}
         </div>
