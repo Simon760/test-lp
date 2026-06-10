@@ -6,9 +6,9 @@ export default function Testimonials() {
   return (
     <Section id="reviews" className="py-20 sm:py-28">
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{testimonials.title}</h2>
-        <p className="mt-4 text-lg text-neutral-600">{testimonials.subtitle}</p>
-        <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1.5 text-sm font-medium text-neutral-600 shadow-soft">
+        <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">{testimonials.title}</h2>
+        <p className="mt-4 text-lg text-neutral-400">{testimonials.subtitle}</p>
+        <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm font-medium text-neutral-300">
           <Stars className="!text-amber-400" />
           {testimonials.rating}
         </div>
@@ -18,10 +18,10 @@ export default function Testimonials() {
         {testimonials.items.map((t) => (
           <figure
             key={t.name}
-            className="break-inside-avoid rounded-3xl border border-neutral-200 bg-white p-6 shadow-soft"
+            className="break-inside-avoid rounded-3xl border border-white/10 bg-white/[0.03] p-6 transition-colors hover:border-white/20"
           >
             <Stars />
-            <blockquote className="mt-3 text-[15px] leading-relaxed text-neutral-700">
+            <blockquote className="mt-3 text-[15px] leading-relaxed text-neutral-300">
               “{t.quote}”
             </blockquote>
             <figcaption className="mt-5 flex items-center gap-3">
@@ -34,7 +34,7 @@ export default function Testimonials() {
                 unoptimized
               />
               <div>
-                <p className="text-sm font-semibold">{t.name}</p>
+                <p className="text-sm font-semibold text-white">{t.name}</p>
                 <p className="text-xs text-neutral-500">{t.role}</p>
               </div>
             </figcaption>

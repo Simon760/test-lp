@@ -18,14 +18,14 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-200/70 bg-white/80 glass">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-ink/80 glass">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <div className="flex items-center gap-9">
           <a href="#" className="group flex items-center gap-2">
             <span className="transition-transform duration-300 group-hover:-rotate-6">
               <Logo />
             </span>
-            <span className="text-lg font-extrabold tracking-tight">{brand.name}</span>
+            <span className="text-lg font-extrabold tracking-tight text-white">{brand.name}</span>
           </a>
 
           <div
@@ -36,7 +36,7 @@ export default function Navbar() {
             {/* gliding highlight */}
             <span
               aria-hidden
-              className="pointer-events-none absolute top-1/2 -z-0 h-8 -translate-y-1/2 rounded-full bg-neutral-100 transition-all duration-300 ease-out"
+              className="pointer-events-none absolute top-1/2 -z-0 h-8 -translate-y-1/2 rounded-full bg-white/10 transition-all duration-300 ease-out"
               style={{ left: hl.left, width: hl.width, opacity: hl.opacity }}
             />
             {nav.links.map((l) => (
@@ -44,7 +44,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 onMouseEnter={(e) => moveTo(e.currentTarget)}
-                className="relative z-10 rounded-full px-3.5 py-2 text-neutral-600 transition-colors duration-200 hover:text-ink"
+                className="relative z-10 rounded-full px-3.5 py-2 text-neutral-400 transition-colors duration-200 hover:text-white"
               >
                 {l.label}
               </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={brand.appUrl}
-            className="hidden text-sm font-medium text-neutral-600 transition-colors hover:text-ink sm:block"
+            className="hidden text-sm font-medium text-neutral-400 transition-colors hover:text-white sm:block"
           >
             Log in
           </a>

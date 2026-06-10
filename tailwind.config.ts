@@ -12,15 +12,20 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       colors: {
+        // dark base (BullGPT-style)
         ink: {
-          DEFAULT: "#0a0b0d",
-          soft: "#3f4248",
+          DEFAULT: "#0a0a0b", // page background / dark surfaces
+          soft: "#141416",
+        },
+        surface: {
+          DEFAULT: "#101012", // cards
+          raised: "#17171a",
         },
         accent: {
-          DEFAULT: "#15a34a",
-          dark: "#0f8a3e",
-          soft: "#e7f8ee",
-          ring: "#bbf0cf",
+          DEFAULT: "#1fd96b", // vivid spring green
+          dark: "#46e892", // brighter — used as text on dark chips
+          soft: "rgba(31,217,107,0.12)", // translucent green chip bg (works on dark)
+          ring: "rgba(31,217,107,0.40)",
         },
       },
       borderRadius: {

@@ -17,9 +17,9 @@ export function Button({
     "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ring";
   const variants = {
     primary:
-      "bg-ink text-white shadow-soft hover:bg-ink-soft hover:-translate-y-0.5",
+      "bg-accent text-ink shadow-[0_10px_34px_-10px_rgba(31,217,107,0.6)] hover:bg-[#34e081] hover:-translate-y-0.5",
     secondary:
-      "border border-neutral-300 bg-white text-ink hover:border-neutral-400 hover:bg-neutral-50",
+      "border border-white/15 bg-white/[0.04] text-white hover:border-white/30 hover:bg-white/[0.08]",
     light:
       "bg-white text-ink shadow-soft hover:-translate-y-0.5 hover:bg-neutral-100",
   };
@@ -81,7 +81,7 @@ export function Check({ className = "" }: { className?: string }) {
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span className={`flex items-center gap-2 ${className}`}>
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-ink text-white">
+      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent text-ink">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="3 17 9 11 13 15 21 7" />
           <polyline points="15 7 21 7 21 13" />

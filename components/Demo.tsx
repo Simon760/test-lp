@@ -8,20 +8,20 @@ export default function Demo() {
       <div className="grid items-center gap-12 lg:grid-cols-2">
         <div>
           <Eyebrow>Live analysis</Eyebrow>
-          <h2 className="text-balance mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 className="text-balance mt-4 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
             {demo.title}
           </h2>
-          <p className="mt-4 text-lg text-neutral-600">{demo.subtitle}</p>
+          <p className="mt-4 text-lg text-neutral-400">{demo.subtitle}</p>
           <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
             {demo.outputs.map((o) => (
-              <li key={o} className="flex items-center gap-2.5 text-[15px] text-neutral-700">
+              <li key={o} className="flex items-center gap-2.5 text-[15px] text-neutral-300">
                 <Check />
                 {o}
               </li>
             ))}
           </ul>
         </div>
-        <div className="rounded-4xl border border-neutral-200 bg-neutral-50/60 p-3 shadow-card">
+        <div className="rounded-4xl border border-white/10 bg-white/[0.02] p-3">
           <DemoCard />
         </div>
       </div>

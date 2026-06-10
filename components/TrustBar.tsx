@@ -46,7 +46,7 @@ function Mark({
 }) {
   return (
     <span
-      className={`flex shrink-0 items-center gap-2 whitespace-nowrap text-lg font-bold tracking-tight text-neutral-400 transition-colors duration-300 hover:text-neutral-600 ${
+      className={`flex shrink-0 items-center gap-2 whitespace-nowrap text-lg font-bold tracking-tight text-neutral-500 transition-colors duration-300 hover:text-neutral-300 ${
         serif ? "font-serif italic" : ""
       }`}
     >
@@ -73,7 +73,7 @@ const LOGOS = [
 
 export default function TrustBar() {
   return (
-    <div className="border-y border-neutral-100 bg-neutral-50/60 py-9">
+    <div className="border-y border-white/10 bg-white/[0.02] py-9">
       <p className="mb-7 text-center text-xs font-semibold uppercase tracking-widest text-neutral-400">
         {trustBar.caption}
       </p>

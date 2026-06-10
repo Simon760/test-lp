@@ -172,7 +172,7 @@ const SPANS = ["lg:col-span-2", "lg:col-span-3", "lg:col-span-3", "lg:col-span-2
 
 export default function ValueCards() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0b0d] py-20 sm:py-28">
+    <section className="relative overflow-hidden bg-ink py-20 sm:py-28">
       {/* ambient green glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[900px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
 
