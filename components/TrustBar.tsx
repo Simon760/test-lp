@@ -6,7 +6,6 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 // `h` = per-logo optical height (compact/square logos get more height so they
 // don't look smaller than the wide wordmarks). Default tuned for wordmarks.
 const LOGOS = [
-  { file: "tradingview.svg", alt: "TradingView", h: "max-h-12" },
   { file: "bloomberg.png", alt: "Bloomberg", h: "max-h-5" },
   { file: "nasdaq.png", alt: "Nasdaq", h: "max-h-6" },
   { file: "reuters.png", alt: "Reuters", h: "max-h-6" },
