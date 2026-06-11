@@ -19,12 +19,13 @@ const LOGOS = [
 
 function LogoImg({ file, alt }: { file: string; alt: string }) {
   return (
-    <span className="flex h-6 shrink-0 items-center">
+    // identical-sized slot for every logo → uniform footprint
+    <span className="flex h-8 w-[132px] shrink-0 items-center justify-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${BASE}/logos/${file}`}
         alt={alt}
-        className="max-h-6 w-auto max-w-[140px] object-contain opacity-55 transition-opacity duration-300 hover:opacity-100 [filter:brightness(0)_invert(1)]"
+        className="max-h-full max-w-full object-contain opacity-50 transition-opacity duration-300 hover:opacity-90 [filter:brightness(0)_invert(1)]"
       />
     </span>
   );
@@ -34,7 +35,7 @@ function LogoImg({ file, alt }: { file: string; alt: string }) {
 // Two identical groups + translateX(-50%) = perfectly seamless loop.
 function Group() {
   return (
-    <div className="flex shrink-0 items-center gap-12 pr-12">
+    <div className="flex shrink-0 items-center gap-6 pr-6">
       {LOGOS.map((l) => (
         <LogoImg key={l.file} {...l} />
       ))}
@@ -47,8 +48,8 @@ function Group() {
 
 export default function TrustBar() {
   return (
-    <div className="border-y border-white/10 bg-white/[0.02] py-9">
-      <p className="mb-7 text-center text-xs font-semibold uppercase tracking-widest text-neutral-500">
+    <div className="py-10">
+      <p className="mb-8 text-center text-xs font-semibold uppercase tracking-widest text-neutral-600">
         {trustBar.caption}
       </p>
       <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
