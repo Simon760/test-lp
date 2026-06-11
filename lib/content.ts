@@ -183,27 +183,27 @@ export const faq = {
   items: [
     {
       q: "What exactly is it?",
-      a: "An AI that reads any US or UK stock chart from a screenshot and gives you a complete, pro-grade analysis in seconds — technicals, fundamentals, and a clear action plan.",
+      a: "An AI that reads any stock chart from a screenshot and hands you a complete, pro-grade analysis in seconds — trend, key levels, a clear buy/sell/wait call, plus the fundamentals and analyst targets behind the move. The full picture, not just the candles.",
     },
     {
-      q: "Does it actually work?",
-      a: "It combines proven technical analysis with real fundamental and analyst data. It won't promise the future — it gives you a sharper, faster, data-backed read so you decide with an edge.",
+      q: "Is it actually accurate?",
+      a: "It won't predict the future — nobody can. What it does is cross-check proven technical analysis with real fundamentals and analyst data, giving you a faster, sharper, data-backed read than you'd ever get staring at a chart alone. Better inputs, better decisions.",
     },
     {
-      q: "I'm a beginner — is it for me?",
-      a: "Yes. It does the heavy analysis for you and explains every scenario in plain language, so you learn while you trade.",
+      q: "I already use TradingView — why this?",
+      a: "You don't switch, you screenshot. TradingView shows you the chart; we tell you what to do with it — the levels, the scenarios with probabilities, and the context most traders miss. Seconds instead of hours of second-guessing.",
     },
     {
-      q: "Which markets and assets does it cover?",
-      a: "Stocks across the major global exchanges, with live price, fundamentals, analyst targets and news.",
+      q: "I'm a complete beginner — is it for me?",
+      a: "Especially. It does the heavy analysis for you and explains every call in plain English, so you act on a plan instead of a guess — and learn the patterns as you go.",
     },
     {
-      q: "How fast is an analysis?",
-      a: "Seconds. Upload a screenshot and the full report comes back almost instantly.",
+      q: "Which markets does it cover?",
+      a: "Stocks across the major global exchanges, with live price, fundamentals, analyst targets and news. If it's a listed stock, you can read it.",
     },
     {
-      q: "Can I cancel anytime?",
-      a: "Yes — no lock-in, no commitment. Cancel in one click whenever you want.",
+      q: "What if it's not for me?",
+      a: "Cancel in one click, anytime — no lock-in, no contract. Most users make the cost back on a single winning trade, but if it's not for you, you're never stuck.",
     },
   ],
 };
