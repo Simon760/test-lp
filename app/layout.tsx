@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { brand } from "@/lib/content";
+import { seo, siteUrl, organizationJsonLd } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,11 +10,31 @@ const inter = Inter({
   display: "swap",
 });
 
-// NOTE: SEO/metadata kept intentionally minimal for now — to be completed
-// once the project name & domain are finalized.
 export const metadata: Metadata = {
-  title: brand.name,
-  description: "AI stock analysis in seconds, from one screenshot.",
+  // Origin only — Next.js prepends basePath itself to asset routes (og image),
+  // so a metadataBase that already contains the basePath would double it.
+  metadataBase: new URL(new URL(siteUrl).origin),
+  title: {
+    default: seo.title,
+    template: `%s · ${brand.name}`,
+  },
+  description: seo.description,
+  keywords: seo.keywords,
+  applicationName: brand.name,
+  alternates: { canonical: `${siteUrl}/` },
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    url: `${siteUrl}/`,
+    siteName: brand.name,
+    title: seo.shortTitle,
+    description: seo.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.shortTitle,
+    description: seo.description,
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +44,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+        />
+      </body>
     </html>
   );
 }

@@ -29,6 +29,7 @@ jobs:
           STATIC_EXPORT: "true"
           PAGES_BASE_PATH: "/${{ github.event.repository.name }}"
           NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
+          NEXT_PUBLIC_SITE_URL: "https://simon760.github.io/${{ github.event.repository.name }}"
         run: npm run build
       - name: Disable Jekyll
         run: touch out/.nojekyll
