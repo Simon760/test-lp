@@ -10,14 +10,14 @@ export default function Pricing() {
           <p className="mt-4 text-lg text-neutral-400">{pricing.subtitle}</p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl items-start gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-4xl items-start gap-6 md:grid-cols-5">
           {pricing.plans.map((plan) => (
             <div
               key={plan.name}
               className={`relative overflow-hidden rounded-3xl border p-8 ${
                 plan.featured
-                  ? "border-accent/40 bg-accent/[0.05] shadow-[0_0_0_1px_rgba(31,217,107,0.12),0_40px_90px_-40px_rgba(31,217,107,0.55)]"
-                  : "border-white/10 bg-white/[0.02]"
+                  ? "border-accent/40 bg-accent/[0.05] shadow-[0_0_0_1px_rgba(31,217,107,0.12),0_40px_90px_-40px_rgba(31,217,74,0.55)] md:col-span-3"
+                  : "border-white/10 bg-white/[0.02] md:col-span-2"
               }`}
             >
               {/* green radial glow on the featured card */}
