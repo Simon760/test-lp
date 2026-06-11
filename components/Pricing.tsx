@@ -26,14 +26,16 @@ export default function Pricing() {
           <p className="mt-4 text-lg text-neutral-400">{pricing.subtitle}</p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-5xl items-start gap-6 md:grid-cols-5">
+        {/* BullGPT geometry: near-equal widths (1.07:1), equal-height row, and the
+            non-featured card vertically inset so the featured one reads "bigger" */}
+        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-[1.07fr_1fr]">
           {pricing.plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative overflow-hidden rounded-3xl border p-8 ${
+              className={`relative overflow-hidden rounded-3xl border ${
                 plan.featured
-                  ? "border-accent/45 bg-gradient-to-b from-accent/[0.18] via-accent/[0.04] to-transparent shadow-[0_0_0_1px_rgba(31,217,107,0.12),0_40px_100px_-40px_rgba(31,217,107,0.6)] md:col-span-3"
-                  : "border-white/10 bg-white/[0.04] md:col-span-2"
+                  ? "border-accent/45 bg-gradient-to-b from-accent/[0.18] via-accent/[0.04] to-transparent p-9 shadow-[0_0_0_1px_rgba(31,217,107,0.12),0_40px_100px_-40px_rgba(31,217,107,0.6)]"
+                  : "border-white/10 bg-white/[0.04] p-8 md:my-8"
               }`}
             >
               {/* green glow at the top of the featured card */}
