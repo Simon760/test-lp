@@ -3,29 +3,31 @@ import { trustBar } from "@/lib/content";
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 // Brand logos (transparent PNG / SVG). Yahoo Finance intentionally omitted.
+// `h` = per-logo optical height (compact/square logos get more height so they
+// don't look smaller than the wide wordmarks). Default tuned for wordmarks.
 const LOGOS = [
-  { file: "tradingview.svg", alt: "TradingView" },
-  { file: "bloomberg.png", alt: "Bloomberg" },
-  { file: "nasdaq.png", alt: "Nasdaq" },
-  { file: "reuters.png", alt: "Reuters" },
-  { file: "nyse.png", alt: "NYSE" },
-  { file: "cnbc.png", alt: "CNBC" },
-  { file: "lseg.png", alt: "London Stock Exchange" },
-  { file: "marketwatch.png", alt: "MarketWatch" },
-  { file: "sp-global.png", alt: "S&P Global" },
-  { file: "financial-times.png", alt: "Financial Times" },
-  { file: "morningstar.png", alt: "Morningstar" },
+  { file: "tradingview.svg", alt: "TradingView", h: "max-h-9" },
+  { file: "bloomberg.png", alt: "Bloomberg", h: "max-h-5" },
+  { file: "nasdaq.png", alt: "Nasdaq", h: "max-h-6" },
+  { file: "reuters.png", alt: "Reuters", h: "max-h-6" },
+  { file: "nyse.png", alt: "NYSE", h: "max-h-8" },
+  { file: "cnbc.png", alt: "CNBC", h: "max-h-6" },
+  { file: "lseg.png", alt: "London Stock Exchange", h: "max-h-6" },
+  { file: "marketwatch.png", alt: "MarketWatch", h: "max-h-8" },
+  { file: "sp-global.png", alt: "S&P Global", h: "max-h-6" },
+  { file: "financial-times.png", alt: "Financial Times", h: "max-h-5" },
+  { file: "morningstar.png", alt: "Morningstar", h: "max-h-5" },
 ];
 
-function LogoImg({ file, alt }: { file: string; alt: string }) {
+function LogoImg({ file, alt, h }: { file: string; alt: string; h: string }) {
   return (
-    // identical-sized slot for every logo → uniform footprint
-    <span className="flex h-8 w-[132px] shrink-0 items-center justify-center">
+    // identical-sized slot; image height tuned per logo for optical balance
+    <span className="flex h-10 w-[132px] shrink-0 items-center justify-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${BASE}/logos/${file}`}
         alt={alt}
-        className="max-h-full max-w-full object-contain opacity-50 transition-opacity duration-300 hover:opacity-90 [filter:brightness(0)_invert(1)]"
+        className={`${h} max-w-full object-contain opacity-50 transition-opacity duration-300 hover:opacity-90 [filter:brightness(0)_invert(1)]`}
       />
     </span>
   );
