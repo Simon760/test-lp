@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Section, Button } from "./ui";
 import { brand, pricing } from "@/lib/content";
 
@@ -17,7 +20,13 @@ function PlainCheck() {
   );
 }
 
+type Lead = "featured" | "alt";
+
 export default function Pricing() {
+  // which card currently "leads": featured (Monthly) by default,
+  // inverted while the cursor is over the other plan
+  const [lead, setLead] = useState<Lead>("featured");
+
   return (
     <div id="pricing" className="bg-white/[0.02] py-20 sm:py-28">
       <Section>
@@ -26,16 +35,24 @@ export default function Pricing() {
           <p className="mt-4 text-lg text-neutral-400">{pricing.subtitle}</p>
         </div>
 
-        {/* BullGPT geometry: near-equal widths (1.07:1), equal-height row, and the
-            non-featured card vertically inset so the featured one reads "bigger" */}
-        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-[1.07fr_1fr]">
-          {pricing.plans.map((plan) => (
+        {/* BullGPT geometry: near-equal widths (1.07:1), the trailing card vertically
+            inset. Hovering the other plan smoothly inverts the proportions —
+            animated via flex-grow (reliably interpolable), inline-driven. */}
+        <div
+          className="mx-auto mt-14 flex max-w-5xl flex-col gap-5 md:flex-row"
+          onMouseLeave={() => setLead("featured")}
+        >
+          {pricing.plans.map((plan) => {
+            const isLead = plan.featured ? lead === "featured" : lead === "alt";
+            return (
             <div
               key={plan.name}
-              className={`relative overflow-hidden rounded-3xl border ${
+              onMouseEnter={() => setLead(plan.featured ? "featured" : "alt")}
+              style={{ flexGrow: isLead ? 1.07 : 1, marginTop: isLead ? 0 : 32, marginBottom: isLead ? 0 : 32 }}
+              className={`relative overflow-hidden rounded-3xl border transition-all duration-500 ease-out max-md:!my-0 md:basis-0 ${
                 plan.featured
                   ? "border-accent/45 bg-gradient-to-b from-accent/[0.18] via-accent/[0.04] to-transparent p-9 shadow-[0_0_0_1px_rgba(31,217,107,0.12),0_40px_100px_-40px_rgba(31,217,107,0.6)]"
-                  : "border-white/10 bg-white/[0.04] p-8 md:my-8"
+                  : "border-white/10 bg-white/[0.04] p-8"
               }`}
             >
               {/* green glow at the top of the featured card */}
@@ -81,7 +98,8 @@ export default function Pricing() {
                 </ul>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
     </div>
