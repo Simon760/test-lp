@@ -6,14 +6,14 @@ const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 // `h` = per-logo optical height (compact/square logos get more height so they
 // don't look smaller than the wide wordmarks). Default tuned for wordmarks.
 const LOGOS = [
-  { file: "tradingview.svg", alt: "TradingView", h: "max-h-9" },
+  { file: "tradingview.svg", alt: "TradingView", h: "max-h-12" },
   { file: "bloomberg.png", alt: "Bloomberg", h: "max-h-5" },
   { file: "nasdaq.png", alt: "Nasdaq", h: "max-h-6" },
   { file: "reuters.png", alt: "Reuters", h: "max-h-6" },
-  { file: "nyse.png", alt: "NYSE", h: "max-h-8" },
-  { file: "cnbc.png", alt: "CNBC", h: "max-h-6" },
+  { file: "nyse.png", alt: "NYSE", h: "max-h-10" },
+  { file: "cnbc.png", alt: "CNBC", h: "max-h-7" },
   { file: "lseg.png", alt: "London Stock Exchange", h: "max-h-6" },
-  { file: "marketwatch.png", alt: "MarketWatch", h: "max-h-8" },
+  { file: "marketwatch.png", alt: "MarketWatch", h: "max-h-11" },
   { file: "sp-global.png", alt: "S&P Global", h: "max-h-6" },
   { file: "financial-times.png", alt: "Financial Times", h: "max-h-5" },
   { file: "morningstar.png", alt: "Morningstar", h: "max-h-5" },
@@ -22,7 +22,7 @@ const LOGOS = [
 function LogoImg({ file, alt, h }: { file: string; alt: string; h: string }) {
   return (
     // identical-sized slot; image height tuned per logo for optical balance
-    <span className="flex h-10 w-[132px] shrink-0 items-center justify-center">
+    <span className="flex h-12 w-[132px] shrink-0 items-center justify-center">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={`${BASE}/logos/${file}`}
