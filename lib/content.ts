@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const brand = {
-  name: "StockReadGPT", // ← swap the project name here once decided
+  name: "UpsideGPT",
   ctaPrimary: "Get started",
   appUrl: "#", // ← point to app.yourdomain.com / signup later
 };
