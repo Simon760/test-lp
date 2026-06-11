@@ -10,45 +10,58 @@ export default function Pricing() {
           <p className="mt-4 text-lg text-neutral-400">{pricing.subtitle}</p>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-3xl gap-6 md:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-4xl items-start gap-6 md:grid-cols-2">
           {pricing.plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-3xl border p-8 ${
+              className={`relative overflow-hidden rounded-3xl border p-8 ${
                 plan.featured
-                  ? "border-accent/50 bg-accent/[0.06] shadow-[0_0_0_1px_rgba(31,217,107,0.15),0_30px_80px_-30px_rgba(31,217,107,0.5)]"
-                  : "border-white/10 bg-white/[0.03]"
+                  ? "border-accent/40 bg-accent/[0.05] shadow-[0_0_0_1px_rgba(31,217,107,0.12),0_40px_90px_-40px_rgba(31,217,107,0.55)]"
+                  : "border-white/10 bg-white/[0.02]"
               }`}
             >
-              <div className="flex items-center justify-between">
-                <p className="font-bold text-white">{plan.name}</p>
-                <span
-                  className={`rounded-full px-2.5 py-1 text-xs font-bold ${
-                    plan.featured ? "bg-accent text-ink" : "bg-white/10 text-neutral-300"
+              {/* green radial glow on the featured card */}
+              {plan.featured && (
+                <span className="pointer-events-none absolute -top-24 left-1/2 h-56 w-[120%] -translate-x-1/2 rounded-full bg-accent/15 blur-[90px]" />
+              )}
+
+              <div className="relative">
+                <div className="flex items-center justify-between">
+                  <p className="text-xl font-bold text-white">{plan.name}</p>
+                  <span className="font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-accent">
+                    [ {plan.badge} ]
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm text-neutral-400">{plan.tagline}</p>
+
+                <p className="mt-6 flex items-baseline gap-1.5">
+                  <span className="text-5xl font-extrabold tracking-tight text-white">{plan.price}</span>
+                  <span className="text-sm font-medium text-neutral-500">{plan.period}</span>
+                </p>
+
+                <Button
+                  href={brand.appUrl}
+                  variant={plan.featured ? "primary" : "secondary"}
+                  className={`mt-7 w-full ${
+                    plan.featured
+                      ? ""
+                      : "!border-accent/25 !bg-accent/[0.05] shadow-[0_0_44px_-14px_rgba(31,217,107,0.5)] hover:!bg-accent/[0.1]"
                   }`}
                 >
-                  {plan.badge}
-                </span>
+                  Get started now
+                </Button>
+
+                <p className="mt-8 text-sm font-semibold text-neutral-300">Included:</p>
+                <ul className="mt-4 space-y-3.5">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3 text-sm text-neutral-300">
+                      <Check className="mt-0.5" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-extrabold tracking-tight text-white">{plan.price}</span>
-                <span className="text-sm font-medium text-neutral-500">{plan.period}</span>
-              </p>
-              <Button
-                href={brand.appUrl}
-                variant={plan.featured ? "primary" : "secondary"}
-                className="mt-6 w-full"
-              >
-                {brand.ctaPrimary}
-              </Button>
-              <ul className="mt-7 space-y-3">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm text-neutral-400">
-                    <Check className="mt-0.5" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
             </div>
           ))}
         </div>
