@@ -4,6 +4,7 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Prose, AuthorDisclaimer } from "@/components/blog/chrome";
+import { ArticleContent } from "@/components/blog/render";
 import { articles, getArticle, formatDate } from "@/lib/blog";
 import { brand } from "@/lib/content";
 import { siteUrl } from "@/lib/seo";
@@ -77,7 +78,7 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
         </h1>
 
         <Prose>
-          <a.Body />
+          {a.content ? <ArticleContent content={a.content} /> : a.Body ? <a.Body /> : null}
         </Prose>
 
         <AuthorDisclaimer date={formatDate(a.date)} />
@@ -86,6 +87,22 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {a.content?.faq && a.content.faq.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: a.content.faq.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            }),
+          }}
+        />
+      )}
     </main>
   );
 }
