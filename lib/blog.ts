@@ -2,6 +2,7 @@ import type { ComponentType } from "react";
 import type { ArticleContentData } from "@/components/blog/render";
 import HowToReadAStockChart from "@/app/blog/articles/how-to-read-a-stock-chart";
 import { article as candlestickPatterns } from "@/app/blog/articles/candlestick-patterns.data";
+import { article as supportAndResistance } from "@/app/blog/articles/support-and-resistance.data";
 
 export type CoverMotif = "candles" | "analysis" | "compare";
 
@@ -40,6 +41,7 @@ export const articles: Article[] = [
     Body: HowToReadAStockChart,
   },
   candlestickPatterns,
+  supportAndResistance,
 ];
 
 export function getArticle(slug: string): Article | undefined {
