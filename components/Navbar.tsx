@@ -1,8 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button, Logo } from "./ui";
+import { Button } from "./ui";
 import { brand, nav } from "@/lib/content";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Navbar() {
   // sliding hover highlight (TrendTrack-style)
@@ -21,9 +23,23 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-ink/80 glass">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <div className="flex items-center gap-9">
-          <a href="#" className="group flex items-center gap-2">
-            <span className="transition-transform duration-300 group-hover:-rotate-6">
-              <Logo />
+          <a href="#" aria-label={brand.name} className="flex items-center gap-2.5">
+            {/* animated U mark, CSS-cropped from the video canvas (1248x1664;
+                U mark region ≈ 160,340 → 930x720, small caption below is cut);
+                mix-blend-screen melts the black video background into the navbar */}
+            <span
+              className="relative block h-10 overflow-hidden mix-blend-screen"
+              style={{ aspectRatio: "930 / 720" }}
+            >
+              <video
+                src={`${BASE}/brand/logo-animated.mp4`}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute max-w-none"
+                style={{ width: "134.2%", left: "-17.2%", top: "-47.2%" }}
+              />
             </span>
             <span className="text-lg font-extrabold tracking-tight text-white">{brand.name}</span>
           </a>

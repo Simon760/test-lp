@@ -29,7 +29,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: brand.name,
     url: siteUrl,
-    logo: `${siteUrl}/icon.svg`,
+    logo: `${siteUrl}/icon.png`,
   };
 }
 
