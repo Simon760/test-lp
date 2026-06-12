@@ -1,13 +1,17 @@
 import { Logo } from "./ui";
 import { brand, footer } from "@/lib/content";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// raw <a> tags don't get Next's basePath automatically — prepend it for internal paths
+const withBase = (h: string) => (h.startsWith("/") ? `${BASE}${h}` : h);
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ink">
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
-            <a href="/" className="flex items-center gap-2">
+            <a href={withBase("/")} className="flex items-center gap-2">
               <Logo />
               <span className="text-lg font-extrabold tracking-tight text-white">{brand.name}</span>
             </a>
@@ -20,7 +24,7 @@ export default function Footer() {
               <ul className="mt-4 space-y-2.5 text-sm text-neutral-500">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a href={l.href} className="transition hover:text-white">
+                    <a href={withBase(l.href)} className="transition hover:text-white">
                       {l.label}
                     </a>
                   </li>
