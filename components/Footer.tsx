@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2">
+            <a href="/" className="flex items-center gap-2">
               <Logo />
               <span className="text-lg font-extrabold tracking-tight text-white">{brand.name}</span>
             </a>

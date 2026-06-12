@@ -23,7 +23,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-ink/80 glass">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
         <div className="flex items-center gap-9">
-          <a href="#" aria-label={brand.name} className="flex items-center gap-2.5">
+          <a href="/" aria-label={brand.name} className="flex items-center gap-2.5">
             {/* animated U mark, CSS-cropped from the video canvas (1248x1664;
                 U mark region ≈ 160,340 → 930x720, small caption below is cut);
                 mix-blend-screen melts the black video background into the navbar */}

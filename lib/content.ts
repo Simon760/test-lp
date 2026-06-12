@@ -11,10 +11,11 @@ export const brand = {
 
 export const nav = {
   links: [
-    { label: "How it works", href: "#how" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Reviews", href: "#reviews" },
-    { label: "FAQ", href: "#faq" },
+    { label: "How it works", href: "/#how" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Reviews", href: "/#reviews" },
+    { label: "Blog", href: "/blog" },
+    { label: "FAQ", href: "/#faq" },
   ],
 };
 
@@ -220,17 +221,17 @@ export const footer = {
     {
       title: "Product",
       links: [
-        { label: "How it works", href: "#how" },
-        { label: "Pricing", href: "#pricing" },
-        { label: "Reviews", href: "#reviews" },
-        { label: "FAQ", href: "#faq" },
+        { label: "How it works", href: "/#how" },
+        { label: "Pricing", href: "/#pricing" },
+        { label: "Reviews", href: "/#reviews" },
+        { label: "FAQ", href: "/#faq" },
       ],
     },
     {
       title: "Company",
       links: [
+        { label: "Blog", href: "/blog" },
         { label: "Contact", href: "#" },
-        { label: "Blog", href: "#" },
       ],
     },
     {
