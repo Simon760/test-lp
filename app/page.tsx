@@ -6,6 +6,7 @@ import HowItWorks from "@/components/HowItWorks";
 import Demo from "@/components/Demo";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
+import BlogSection from "@/components/BlogSection";
 import FAQ from "@/components/FAQ";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -22,6 +23,7 @@ export default function Home() {
       <Demo />
       <Pricing />
       <Testimonials />
+      <BlogSection />
       <FAQ />
       <CTASection />
       <Footer />

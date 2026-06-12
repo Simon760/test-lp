@@ -1,12 +1,16 @@
 import type { ComponentType } from "react";
 import HowToReadAStockChart from "@/app/blog/articles/how-to-read-a-stock-chart";
 
+export type CoverMotif = "candles" | "analysis" | "compare";
+
 export type Article = {
   slug: string;
   title: string; // <h1> / og title
   metaTitle: string; // <title> tag (can be tighter)
   description: string;
   keyword: string;
+  category: string; // small chip on cards
+  cover: CoverMotif; // on-brand thumbnail motif
   date: string; // ISO, used for JSON-LD + display
   readingTime: string;
   excerpt: string;
@@ -22,6 +26,8 @@ export const articles: Article[] = [
     description:
       "Learn to read a stock chart from scratch — candlesticks, trend, support and resistance, volume and indicators — plus the fundamentals chart-only tools miss.",
     keyword: "how to read stock charts",
+    category: "Guides",
+    cover: "candles",
     date: "2026-06-12",
     readingTime: "8 min read",
     excerpt:
