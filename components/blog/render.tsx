@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { Figure, CandleAnatomy, TrendChart, SupportResistanceChart, AnalysisMockup } from "./figures";
 import { CandlePatterns, Breakout, ScreenshotToReport, ThreeLayers } from "./figures2";
+import { PatternAtLevel, RoleReversal, RiskReward, FundamentalsPanel, AnalystTargets } from "./figures3";
 import { KeyTakeaways, Ul, ArticleCta, ArticleFaq } from "./chrome";
 
 /* ── Structured content model (produced by the content workflow) ──
@@ -30,6 +31,11 @@ const MOTIFS: Record<string, () => ReactNode> = {
   breakout: Breakout,
   screenshotToReport: ScreenshotToReport,
   threeLayers: ThreeLayers,
+  patternAtLevel: PatternAtLevel,
+  roleReversal: RoleReversal,
+  riskReward: RiskReward,
+  fundamentalsPanel: FundamentalsPanel,
+  analystTargets: AnalystTargets,
 };
 
 /* Minimal inline renderer: supports **bold** and [label](/path). */

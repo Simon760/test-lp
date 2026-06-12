@@ -7,7 +7,7 @@ export const article: Article = {
   "description": "Learn the candlestick patterns that matter — doji, hammer, engulfing and more — what each signals, why they fail, and how to read the full picture.",
   "keyword": "candlestick patterns",
   "category": "Guides",
-  "cover": "candles",
+  "cover": "patterns",
   "date": "2026-06-11",
   "readingTime": "8 min read",
   "excerpt": "Doji, hammer, engulfing — learn the candlestick patterns that actually matter, what each one signals, and how to avoid trading a shape without the full picture.",
@@ -90,11 +90,6 @@ export const article: Article = {
         "text": "Notice a theme: most of these patterns are **reversal** signals, and reversals only make sense if there is a trend to reverse. That is why pattern reading and trend reading go hand in hand. If you are still shaky on spotting the trend itself, start with [How to Read a Stock Chart](/blog/how-to-read-a-stock-chart) before you lean on patterns."
       },
       {
-        "type": "figure",
-        "motif": "trend",
-        "caption": "Patterns mean the most when read against the trend — reversals at the end of a run, continuations in the middle."
-      },
-      {
         "type": "h2",
         "text": "Why candlestick patterns fail (and how to filter the noise)"
       },
@@ -133,8 +128,8 @@ export const article: Article = {
       },
       {
         "type": "figure",
-        "motif": "threeLayers",
-        "caption": "A trustworthy read combines the candles with fundamentals and analyst targets — not candles alone."
+        "motif": "patternAtLevel",
+        "caption": "A reversal pattern is far stronger at a key level than floating in the middle of a chart."
       },
       {
         "type": "p",

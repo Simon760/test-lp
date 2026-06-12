@@ -6,7 +6,7 @@ import { article as supportAndResistance } from "@/app/blog/articles/support-and
 import { article as howToUseAiForStockAnalysis } from "@/app/blog/articles/how-to-use-ai-for-stock-analysis.data";
 import { article as howToAnalyzeAStockBeforeBuying } from "@/app/blog/articles/how-to-analyze-a-stock-before-buying.data";
 
-export type CoverMotif = "candles" | "analysis" | "compare";
+export type CoverMotif = "candles" | "patterns" | "levels" | "ai" | "framework";
 
 export type Article = {
   slug: string;

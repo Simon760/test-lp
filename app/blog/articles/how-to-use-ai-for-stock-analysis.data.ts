@@ -7,7 +7,7 @@ export const article: Article = {
   "description": "AI stock analysis turns any chart screenshot into a clear Buy, Sell, or Wait signal in seconds. Learn how it works, what it can do, and how to start in 2026.",
   "keyword": "AI stock analysis",
   "category": "AI & Trading",
-  "cover": "analysis",
+  "cover": "ai",
   "date": "2026-06-09",
   "readingTime": "9 min read",
   "excerpt": "AI stock analysis turns any chart into a clear Buy, Sell, or Wait signal in seconds — here is how it works, what it can do, and how to start using it the right way.",
@@ -63,8 +63,8 @@ export const article: Article = {
       },
       {
         "type": "figure",
-        "motif": "candleAnatomy",
-        "caption": "Computer vision starts by reading each candle's open, high, low, and close before anything else."
+        "motif": "riskReward",
+        "caption": "Every read comes with a plan: entry, stop-loss, take-profit and the risk-to-reward ratio."
       },
       {
         "type": "h2",

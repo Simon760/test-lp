@@ -7,7 +7,7 @@ export const article: Article = {
   "description": "Learn how to analyze a stock with a 3-layer framework: technical, fundamental, and expectations. A practical 2026 guide for traders and investors.",
   "keyword": "how to analyze a stock",
   "category": "Guides",
-  "cover": "analysis",
+  "cover": "framework",
   "date": "2026-06-08",
   "readingTime": "8 min read",
   "excerpt": "A step-by-step framework for evaluating any stock before you buy, combining chart signals, fundamentals, and analyst expectations into one clear decision.",
@@ -83,8 +83,8 @@ export const article: Article = {
       },
       {
         "type": "figure",
-        "motif": "supportResistance",
-        "caption": "Price bouncing between support and resistance, the zones that define your entry, stop-loss, and target."
+        "motif": "fundamentalsPanel",
+        "caption": "The fundamentals a chart can't show — valuation, profitability and the next earnings date."
       },
       {
         "type": "h2",
@@ -125,8 +125,8 @@ export const article: Article = {
       },
       {
         "type": "figure",
-        "motif": "analysisMockup",
-        "caption": "A complete analysis card: a clear signal with entry, stop-loss, and target, backed by fundamentals and analyst targets."
+        "motif": "analystTargets",
+        "caption": "Where Wall Street thinks the stock is going: the analyst price-target range vs today's price."
       },
       {
         "type": "h2",

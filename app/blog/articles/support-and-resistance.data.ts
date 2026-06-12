@@ -7,7 +7,7 @@ export const article: Article = {
   "description": "Learn what support and resistance are, how to find the levels on any chart, and how to trade bounces and breakouts around them — with risk-defined entries.",
   "keyword": "support and resistance",
   "category": "Guides",
-  "cover": "candles",
+  "cover": "levels",
   "date": "2026-06-10",
   "readingTime": "8 min read",
   "excerpt": "Support and resistance are the most useful levels on any chart. Here's how to find them, trade the bounce or the breakout, and define your risk around them.",
@@ -108,11 +108,6 @@ export const article: Article = {
         "text": "Just as important is knowing which way the wind is blowing. Buying support inside a healthy **uptrend** is buying the dip; buying support in a downtrend is catching a falling knife. Pair your levels with a read on the prevailing trend and a quick check of the fundamentals, the same groundwork covered in [How to Analyze a Stock Before Buying](/blog/how-to-analyze-a-stock-before-buying), before you commit to a side."
       },
       {
-        "type": "figure",
-        "motif": "trend",
-        "caption": "In an uptrend, each pullback finds support higher than the last, and buying levels with the trend behind you tends to be the lower-risk side."
-      },
-      {
         "type": "h2",
         "text": "Common mistakes with support and resistance"
       },
@@ -143,8 +138,8 @@ export const article: Article = {
       },
       {
         "type": "figure",
-        "motif": "threeLayers",
-        "caption": "A complete read stacks three layers: the technical levels on the chart, the fundamentals, and analyst targets that chart-only tools ignore."
+        "motif": "roleReversal",
+        "caption": "Once broken, old resistance often flips to become new support — the role reversal."
       },
       {
         "type": "p",
