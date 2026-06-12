@@ -4,6 +4,7 @@ import HowToReadAStockChart from "@/app/blog/articles/how-to-read-a-stock-chart"
 import { article as candlestickPatterns } from "@/app/blog/articles/candlestick-patterns.data";
 import { article as supportAndResistance } from "@/app/blog/articles/support-and-resistance.data";
 import { article as howToUseAiForStockAnalysis } from "@/app/blog/articles/how-to-use-ai-for-stock-analysis.data";
+import { article as howToAnalyzeAStockBeforeBuying } from "@/app/blog/articles/how-to-analyze-a-stock-before-buying.data";
 
 export type CoverMotif = "candles" | "analysis" | "compare";
 
@@ -44,6 +45,7 @@ export const articles: Article[] = [
   candlestickPatterns,
   supportAndResistance,
   howToUseAiForStockAnalysis,
+  howToAnalyzeAStockBeforeBuying,
 ];
 
 export function getArticle(slug: string): Article | undefined {
