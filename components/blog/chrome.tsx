@@ -85,7 +85,7 @@ export function ArticleCta() {
       </p>
       <a
         href={brand.appUrl}
-        className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-ink shadow-[0_10px_34px_-10px_rgba(31,217,107,0.6)] transition hover:-translate-y-0.5"
+        className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold !text-ink !no-underline shadow-[0_10px_34px_-10px_rgba(31,217,107,0.6)] transition hover:-translate-y-0.5"
       >
         {brand.ctaPrimary} →
       </a>
