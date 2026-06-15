@@ -244,8 +244,8 @@ export const footer = {
       title: "Legal",
       links: [
         { label: "Terms of Service", href: "/terms-of-service" },
-        { label: "Privacy Policy", href: "#" },
-        { label: "Risk Disclosure", href: "#" },
+        { label: "Privacy Policy", href: "/privacy-policy" },
+        { label: "Risk Disclosure", href: "/risk-disclosure" },
       ],
     },
   ],
