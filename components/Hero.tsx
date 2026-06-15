@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Button, Section, Stars } from "./ui";
 import { brand, hero } from "@/lib/content";
-
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+import DemoCard from "./DemoCard";
 
 export default function Hero() {
   return (
@@ -73,12 +72,9 @@ export default function Hero() {
                   {brand.name.toLowerCase()} — chart analysis
                 </span>
               </div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${BASE}/shots/hero.png`}
-                alt={`${brand.name} stock analysis — trading plan with entry, stop-loss and take-profit`}
-                className="w-full"
-              />
+              <div className="p-4 text-left sm:p-5">
+                <DemoCard />
+              </div>
             </div>
           </div>
 

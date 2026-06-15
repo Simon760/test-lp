@@ -10,173 +10,155 @@ function GCheck() {
     </span>
   );
 }
-
-function MiniBar({ value }: { value: number }) {
+function Dot({ tone }: { tone: "red" | "green" | "amber" }) {
+  const c = tone === "red" ? "bg-red-400" : tone === "green" ? "bg-accent" : "bg-amber-400";
+  return <span className={`h-2 w-2 shrink-0 rounded-full ${c}`} />;
+}
+function Spark({ up = false }: { up?: boolean }) {
   return (
-    <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
-      <div className="h-full rounded-full bg-accent" style={{ width: `${value}%` }} />
+    <svg viewBox="0 0 80 24" className="h-5 w-full" preserveAspectRatio="none" aria-hidden>
+      <polyline
+        points={up ? "0,20 16,14 32,16 48,8 64,10 80,3" : "0,8 16,6 32,12 48,9 64,16 80,18"}
+        fill="none"
+        stroke={up ? "#1fd96b" : "#f87171"}
+        strokeWidth="2"
+        opacity="0.8"
+      />
+    </svg>
+  );
+}
+
+/* ── Card 1 · Key Figures (Built by traders) ─────────────────── */
+function MockTechnical() {
+  const figs = [
+    { k: "Trend", v: "8/10", s: "Uptrend", up: true },
+    { k: "ADX (14)", v: "35.1", s: "Strong", up: true },
+    { k: "RSI (14)", v: "34.2", s: "Bearish", up: false },
+    { k: "Confidence", v: "55%", s: "Multi-TF", up: false },
+  ];
+  return (
+    <div>
+      <div className="mb-3 flex flex-wrap gap-1.5">
+        {["Support & resistance", "Fibonacci", "RSI & MACD", "Moving averages", "Smart Money"].map((t) => (
+          <span key={t} className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-2 py-0.5 text-[11px] text-neutral-300">
+            <GCheck />
+            {t}
+          </span>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        {figs.map((f) => (
+          <div key={f.k} className="rounded-xl border border-white/10 bg-white/[0.03] p-2.5">
+            <div className="flex items-baseline justify-between">
+              <span className="text-[11px] text-neutral-500">{f.k}</span>
+              <span className="text-sm font-bold text-white">{f.v}</span>
+            </div>
+            <Spark up={f.up} />
+            <span className="text-[10px] text-neutral-500">{f.s}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-/* ── Mockup 1 · Technical read (Built by traders) ────────────── */
-function MockTechnical() {
+/* ── Card 2 · Fundamentals + earnings (More than the chart) ──── */
+function MockFundamentals() {
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      <div className="space-y-2.5">
-        {["Support & resistance", "Fibonacci levels", "RSI & MACD", "Moving averages"].map((t) => (
-          <div key={t} className="flex items-center gap-2 text-sm text-neutral-300">
-            <GCheck />
-            {t}
+    <div className="space-y-3">
+      <div className="grid grid-cols-4 gap-2">
+        {[["P/E", "34.9"], ["EPS", "$8.33"], ["ROE", "147%"], ["D/E", "0.8"]].map(([k, v]) => (
+          <div key={k} className="rounded-xl border border-white/10 bg-white/[0.03] px-2 py-2 text-center">
+            <p className="text-[10px] uppercase tracking-wide text-neutral-500">{k}</p>
+            <p className="text-sm font-bold text-white">{v}</p>
           </div>
         ))}
       </div>
       <div className="space-y-2">
-        <div className="flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/15 px-3 py-2.5 shadow-[0_0_24px_-8px_rgba(21,163,74,0.6)]">
-          <GCheck />
-          <span className="text-sm font-bold text-white">TP1</span>
-          <span className="ml-auto text-base font-extrabold text-accent">+$176</span>
-        </div>
-        <div className="flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/15 px-3 py-2.5 shadow-[0_0_24px_-8px_rgba(21,163,74,0.6)]">
-          <GCheck />
-          <span className="text-sm font-bold text-white">TP2</span>
-          <span className="ml-auto text-base font-extrabold text-accent">+$356</span>
-        </div>
-        <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <span className="text-xs text-neutral-400">Signal · Confidence</span>
-          <span className="rounded-full bg-accent px-2 py-0.5 text-[11px] font-bold text-white">BUY · 78%</span>
-        </div>
+        {[
+          { d: "Apr 30, 2026", t: "Earnings — AAPL", p: "+3.1%" },
+          { d: "Jan 29, 2026", t: "Earnings — AAPL", p: "+6.7%" },
+        ].map((e) => (
+          <div key={e.d} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+            <span className="rounded-md border border-accent/30 bg-accent/10 px-2 py-0.5 text-[10px] font-bold text-accent">BEAT</span>
+            <div className="min-w-0">
+              <p className="truncate text-xs font-semibold text-white">{e.t}</p>
+              <p className="text-[11px] text-neutral-500">{e.d}</p>
+            </div>
+            <span className="ml-auto text-sm font-bold text-accent">{e.p}</span>
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+        <span className="text-[11px] text-neutral-400">Next earnings</span>
+        <span className="text-xs font-semibold text-white">Jul 30, 2026</span>
       </div>
     </div>
   );
 }
 
-/* ── Mockup 2 · The edge: chart + fundamentals + analyst ─────── */
-function MockFundamentals() {
-  return (
-    <div className="grid gap-3 sm:grid-cols-5">
-      <div className="space-y-2 sm:col-span-3">
-        <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <div className="flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10 text-[11px] font-bold text-white">AA</span>
-            <div>
-              <p className="text-xs font-bold leading-none text-white">AAPL</p>
-              <p className="text-[10px] text-neutral-400">NASDAQ</p>
-            </div>
-          </div>
-          <span className="rounded-full bg-accent/20 px-2 py-0.5 text-[11px] font-bold text-accent">▲ Uptrend</span>
-        </div>
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            ["P/E", "29.4"],
-            ["EPS", "$6.43"],
-            ["ROE", "147%"],
-          ].map(([k, v]) => (
-            <div key={k} className="rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-center">
-              <p className="text-[10px] uppercase tracking-wide text-neutral-400">{k}</p>
-              <p className="text-sm font-bold text-white">{v}</p>
-            </div>
-          ))}
-        </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <div className="flex items-center justify-between">
-            <span className="text-[11px] text-neutral-400">Next earnings</span>
-            <span className="text-xs font-semibold text-white">in 12 days</span>
-          </div>
-        </div>
-      </div>
-      <div className="rounded-xl border border-accent/30 bg-accent/10 p-3 sm:col-span-2">
-        <p className="text-[11px] uppercase tracking-wide text-accent">Analyst consensus</p>
-        <p className="mt-1 text-2xl font-extrabold text-white">$205</p>
-        <p className="text-[11px] text-neutral-400">range $170 – $250</p>
-        <div className="mt-3">
-          <div className="mb-1 flex items-center justify-between text-[11px]">
-            <span className="text-neutral-300">Bullish ratings</span>
-            <span className="font-bold text-accent">82%</span>
-          </div>
-          <MiniBar value={82} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── Mockup 3 · Profile calibration (Adapts to your style) ───── */
+/* ── Card 3 · Profile indicators (Adapts to your style) ──────── */
 function MockProfile() {
+  const rows = [
+    { tone: "red" as const, k: "RSI (14)", v: "34.2", s: "bearish momentum" },
+    { tone: "red" as const, k: "MACD", v: "−3.5", s: "histogram −3.5" },
+    { tone: "red" as const, k: "ADX (14)", v: "35.1", s: "strong bearish trend" },
+    { tone: "green" as const, k: "ATR (14)", v: "$7.59", s: "sizes stop & targets" },
+  ];
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      <div className="space-y-3">
-        <div className="flex items-center gap-2 rounded-xl border border-accent/30 bg-accent/10 px-3 py-2.5">
-          <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-accent border-t-transparent" />
-          <span className="text-sm font-semibold text-white">Calibrating your profile…</span>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-white">Day trader</span>
-          <span className="rounded-full border border-white/15 px-3 py-1 text-xs font-medium text-neutral-400">Swing</span>
-          <span className="rounded-full border border-white/15 px-3 py-1 text-xs font-medium text-neutral-400">Investor</span>
-        </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <p className="text-[11px] text-neutral-400">Profile locked after</p>
-          <div className="mt-1.5 flex items-center gap-2">
-            <MiniBar value={70} />
-            <span className="whitespace-nowrap text-[11px] font-bold text-white">7 / 10</span>
-          </div>
-        </div>
+    <div>
+      <div className="mb-3 flex items-center gap-2">
+        <span className="rounded-full bg-accent px-3 py-1 text-xs font-bold text-ink">Short-Term Trading</span>
+        <span className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-neutral-400">Long-Term Investing</span>
       </div>
-      <div className="rounded-xl border border-white/10 bg-white/5 p-3">
-        <p className="text-[11px] uppercase tracking-wide text-neutral-400">Tuned for you</p>
-        <ul className="mt-2 space-y-2 text-xs text-neutral-300">
-          <li className="flex items-center gap-2"><GCheck /> Intraday timeframes</li>
-          <li className="flex items-center gap-2"><GCheck /> Tighter stop-losses</li>
-          <li className="flex items-center gap-2"><GCheck /> Momentum setups</li>
-        </ul>
+      <div className="space-y-1.5">
+        {rows.map((r) => (
+          <div key={r.k} className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2">
+            <Dot tone={r.tone} />
+            <span className="text-xs font-semibold text-white">{r.k}</span>
+            <span className="text-xs text-neutral-400">{r.v}</span>
+            <span className="ml-auto truncate text-[11px] text-neutral-500">{r.s}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-/* ── Mockup 4 · Scenarios (Trade with conviction) ────────────── */
+/* ── Card 4 · Likely scenarios (Trade with conviction) ───────── */
 function MockScenarios() {
   return (
-    <div className="space-y-3">
-      <div className="relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-3">
-        <svg viewBox="0 0 220 70" className="h-16 w-full">
-          <polyline points="0,55 35,40 70,25 105,12 140,30 175,20 220,8" fill="none" stroke="#15a34a" strokeWidth="2.5" />
-          <polyline points="0,55 35,40 70,25 105,12 140,30 175,20 220,8 220,70 0,70" fill="url(#g)" opacity="0.25" />
-          <defs>
-            <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#15a34a" />
-              <stop offset="100%" stopColor="#15a34a" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-        <span className="absolute right-3 top-3 rounded-full bg-accent/20 px-2 py-0.5 text-[11px] font-bold text-accent">Bull 68%</span>
-        <span className="absolute left-3 top-3 rounded-full border border-accent/40 bg-accent/15 px-2.5 py-0.5 text-[11px] font-extrabold text-accent shadow-[0_0_18px_-6px_rgba(21,163,74,0.6)]">+$257</span>
+    <div className="space-y-2.5">
+      <div className="rounded-xl border border-accent/25 bg-accent/[0.05] p-3">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-bold text-accent">Bullish scenario</span>
+          <span className="text-xs font-bold text-accent">30%</span>
+        </div>
+        <div className="mt-2 h-1.5 w-full rounded-full bg-white/10">
+          <div className="h-1.5 w-[30%] rounded-full bg-accent" />
+        </div>
+        <p className="mt-2 text-[11px] text-neutral-400">Trigger — breaks above $303.88 (SMA20)</p>
       </div>
-      <div className="grid grid-cols-2 gap-2">
-        <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <p className="text-[11px] text-neutral-400">Stop-loss</p>
-          <p className="text-sm font-bold text-red-400">$185.40</p>
+      <div className="rounded-xl border border-red-400/25 bg-red-400/[0.05] p-3">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-bold text-red-400">Bearish scenario</span>
+          <span className="text-xs font-bold text-red-400">70%</span>
         </div>
-        <div className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-          <p className="text-[11px] text-neutral-400">Take-profit</p>
-          <p className="text-sm font-bold text-accent">$196.50</p>
+        <div className="mt-2 h-1.5 w-full rounded-full bg-white/10">
+          <div className="h-1.5 w-[70%] rounded-full bg-red-400" />
         </div>
+        <p className="mt-2 text-[11px] text-neutral-400">Trigger — falls below $285.49 (SMA50) → $270</p>
       </div>
     </div>
   );
 }
 
-const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
-// real product screenshots, indexed to the cards (Built by traders, More than
-// the chart, Adapts to your style, Trade with conviction)
-const SHOTS = ["card-technical.png", "card-edge.png", "card-profile.png", "card-scenarios.png"];
+const MOCKS = [<MockTechnical key="t" />, <MockFundamentals key="f" />, <MockProfile key="p" />, <MockScenarios key="s" />];
 const SPANS = ["lg:col-span-2", "lg:col-span-3", "lg:col-span-3", "lg:col-span-2"];
 
 export default function ValueCards() {
   return (
     <section className="relative overflow-hidden bg-ink py-20 sm:py-28">
-      {/* ambient green glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-[900px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
 
       <div className="relative mx-auto max-w-6xl px-5">
@@ -200,13 +182,11 @@ export default function ValueCards() {
                   : "border-white/10 bg-white/[0.03] hover:border-white/20"
               }`}
             >
-              {/* product screenshot */}
-              <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0c]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`${BASE}/shots/${SHOTS[i]}`} alt={card.title} className="h-44 w-full object-cover object-top" />
+              {/* product visual (faithful native recreation) */}
+              <div className="mb-6 rounded-2xl border border-white/10 bg-[#0b0c0e] p-3">
+                {MOCKS[i]}
               </div>
 
-              {/* copy */}
               <div className="mt-auto">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-accent">{card.tag}</span>
                 <h3 className="mt-2 text-lg font-bold tracking-tight text-white">{card.title}</h3>
