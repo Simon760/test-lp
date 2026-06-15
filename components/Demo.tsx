@@ -1,6 +1,7 @@
 import { Section, Eyebrow, Check } from "./ui";
 import { demo } from "@/lib/content";
-import DemoCard from "./DemoCard";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Demo() {
   return (
@@ -21,8 +22,13 @@ export default function Demo() {
             ))}
           </ul>
         </div>
-        <div className="rounded-4xl border border-white/10 bg-white/[0.02] p-3">
-          <DemoCard />
+        <div className="overflow-hidden rounded-4xl border border-white/10 bg-[#0a0a0c] p-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${BASE}/shots/demo.png`}
+            alt={`${demo.title} — Smart Money Concepts analysis`}
+            className="w-full rounded-3xl"
+          />
         </div>
       </div>
     </Section>

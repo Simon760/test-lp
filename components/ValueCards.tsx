@@ -167,7 +167,10 @@ function MockScenarios() {
   );
 }
 
-const MOCKS = [<MockTechnical key="t" />, <MockFundamentals key="f" />, <MockProfile key="p" />, <MockScenarios key="s" />];
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+// real product screenshots, indexed to the cards (Built by traders, More than
+// the chart, Adapts to your style, Trade with conviction)
+const SHOTS = ["card-technical.png", "card-edge.png", "card-profile.png", "card-scenarios.png"];
 const SPANS = ["lg:col-span-2", "lg:col-span-3", "lg:col-span-3", "lg:col-span-2"];
 
 export default function ValueCards() {
@@ -197,9 +200,10 @@ export default function ValueCards() {
                   : "border-white/10 bg-white/[0.03] hover:border-white/20"
               }`}
             >
-              {/* product mockup */}
-              <div className="mb-6 rounded-2xl border border-white/10 bg-black/30 p-3">
-                {MOCKS[i]}
+              {/* product screenshot */}
+              <div className="mb-6 overflow-hidden rounded-2xl border border-white/10 bg-[#0a0a0c]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`${BASE}/shots/${SHOTS[i]}`} alt={card.title} className="h-44 w-full object-cover object-top" />
               </div>
 
               {/* copy */}
