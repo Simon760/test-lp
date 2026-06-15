@@ -243,7 +243,7 @@ export const footer = {
     {
       title: "Legal",
       links: [
-        { label: "Terms of Service", href: "#" },
+        { label: "Terms of Service", href: "/terms-of-service" },
         { label: "Privacy Policy", href: "#" },
         { label: "Risk Disclosure", href: "#" },
       ],
