@@ -5,10 +5,20 @@ import Footer from "@/components/Footer";
 import { brand } from "@/lib/content";
 import { siteUrl } from "@/lib/seo";
 
+/* ── Company details — edit here ─────────────────────────────── */
 const COMPANY = "ITC ECOM LLC";
+const STATE = "Wyoming";
 const ADDRESS = "30 N Gould St STE N, Sheridan, WY 82801, USA";
+const ARBITRATION_VENUE = "Sheridan, Wyoming";
 const EMAIL = "hello@upsidegpt.com";
+const SITE_DOMAIN = "upsidegpt.com";
+const FORMED = "November 2025";
 const EFFECTIVE = "June 1, 2026";
+const GOVERNING_ACT = "Wyoming Limited Liability Company Act, Wyo. Stat. Ann. §§ 17-29-101 et seq.";
+// Optional — fill in once available, then they render automatically:
+const ENTITY_ID = ""; // e.g. "2025-001234567"
+const REGISTERED_AGENT = ""; // e.g. "Registered Agents Inc"
+const PAYMENT_PROCESSOR = "our third-party payment processor"; // e.g. "Stripe" / "Whop.com"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -16,12 +26,11 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteUrl}/terms-of-service` },
 };
 
-/* One numbered article — formal legal styling, divider above each. */
 function Article({ n, title, children }: { n: number; title: string; children: ReactNode }) {
   return (
     <section className="mt-10 border-t border-white/10 pt-10">
       <h2 className="text-lg font-bold tracking-tight text-white sm:text-xl">
-        <span className="text-neutral-500">{n}.</span> {title}
+        <span className="text-neutral-500">Article {n} —</span> {title}
       </h2>
       <div className="mt-4 space-y-4 text-[15px] leading-7 text-neutral-400 [&_a]:text-accent [&_a]:underline [&_a]:underline-offset-2 [&_li]:pl-1 [&_strong]:font-semibold [&_strong]:text-neutral-200 [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5 [&_ul]:marker:text-neutral-600">
         {children}
@@ -30,220 +39,264 @@ function Article({ n, title, children }: { n: number; title: string; children: R
   );
 }
 
+function Sub({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div className="pt-1">
+      <h3 className="text-[15px] font-semibold text-neutral-200">{title}</h3>
+      <div className="mt-1.5 space-y-3">{children}</div>
+    </div>
+  );
+}
+
 export default function TermsOfService() {
   return (
     <main>
       <Navbar />
       <article className="mx-auto max-w-3xl px-5 py-16 sm:py-24">
-        {/* header */}
         <header className="border-b border-white/10 pb-10 text-center">
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Legal</p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">Terms of Service</h1>
-          <p className="mt-5 text-sm text-neutral-400">{COMPANY} &mdash; operator of {brand.name}</p>
-          <p className="mt-1 text-sm text-neutral-500">Effective date: {EFFECTIVE} · Last updated: {EFFECTIVE}</p>
+          <p className="mt-5 text-sm text-neutral-400">{brand.name} — AI Stock Analysis Platform</p>
+          <p className="mt-1 text-sm text-neutral-500">{COMPANY} · Effective: {EFFECTIVE}</p>
         </header>
 
-        {/* intro */}
-        <div className="mt-10 space-y-4 text-[15px] leading-7 text-neutral-400 [&_strong]:font-semibold [&_strong]:text-neutral-200">
-          <p>
-            These Terms of Service (the <strong>&ldquo;Terms&rdquo;</strong>) form a legally binding agreement between
-            you (<strong>&ldquo;you&rdquo;</strong>) and {COMPANY} (<strong>&ldquo;{brand.name}&rdquo;</strong>,{" "}
-            <strong>&ldquo;we&rdquo;</strong>, <strong>&ldquo;us&rdquo;</strong>, <strong>&ldquo;our&rdquo;</strong>), a
-            limited liability company formed in November 2025 under the laws of the State of Wyoming, United States, with
-            its registered address at {ADDRESS}. They govern your access to and use of the {brand.name} website,
-            applications, and related services (together, the <strong>&ldquo;Service&rdquo;</strong>).
-          </p>
-          <p>
-            By creating an account, accessing, or using the Service in any way, you confirm that you have read,
-            understood, and agree to be bound by these Terms and by our Privacy Policy.{" "}
-            <strong>If you do not agree, you must not access or use the Service.</strong>
-          </p>
+        <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-[13px] font-semibold uppercase leading-6 tracking-wide text-neutral-300">
+          Please read these Terms of Service carefully before accessing or using {SITE_DOMAIN}. By creating an account or
+          purchasing a plan, you agree to be legally bound by these Terms.
         </div>
 
-        <Article n={1} title="The Service">
+        <Article n={1} title="Identification of the Publisher">
           <p>
-            {brand.name} is an AI-powered stock-analysis tool. You submit a screenshot or link of a stock chart, and the
-            Service returns an automated, software-generated analysis that may include the detected trend, key price
-            levels, indicators, a suggested buy / sell / wait read, entry, stop-loss and take-profit levels, probability
-            scenarios, and related fundamental and market context. The Service is a research and educational tool only.
-            It is automated and operates without human review of individual outputs.
+            The website {SITE_DOMAIN} (the <strong>&ldquo;Platform&rdquo;</strong>) is published and operated by{" "}
+            {COMPANY}, a limited liability company organized under the laws of the State of {STATE}, United States of
+            America.
           </p>
+          <ul>
+            <li><strong>Formation date:</strong> {FORMED}</li>
+            {ENTITY_ID && <li><strong>Entity ID:</strong> {ENTITY_ID}</li>}
+            <li><strong>Principal place of business:</strong> {ADDRESS}</li>
+            {REGISTERED_AGENT && <li><strong>Registered Agent:</strong> {REGISTERED_AGENT}</li>}
+            <li><strong>Contact:</strong> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
+            <li><strong>Governing statute:</strong> {GOVERNING_ACT}</li>
+          </ul>
         </Article>
 
-        <Article n={2} title="Not financial advice — risk disclosure">
+        <Article n={2} title="Definitions">
+          <ul>
+            <li><strong>&ldquo;Platform&rdquo;</strong> means the website {SITE_DOMAIN} and all associated services, tools, and content.</li>
+            <li><strong>&ldquo;Service&rdquo;</strong> means the AI-powered stock-chart analysis tool and any related features provided by {brand.name}.</li>
+            <li><strong>&ldquo;User&rdquo;</strong> or <strong>&ldquo;Subscriber&rdquo;</strong> means any individual or entity who creates an account or purchases a plan.</li>
+            <li><strong>&ldquo;Subscription&rdquo;</strong> means recurring monthly paid access to the Service.</li>
+            <li><strong>&ldquo;Lifetime Access&rdquo;</strong> means one-time paid access to the Service for the lifetime of the Service.</li>
+            <li><strong>&ldquo;Content&rdquo;</strong> or <strong>&ldquo;Output&rdquo;</strong> means any analysis, signal, score, level, scenario, or information generated by the Service.</li>
+            <li><strong>&ldquo;Affiliate Content&rdquo;</strong> means any sponsored, partnership, or affiliate-linked content we publish on any channel.</li>
+          </ul>
+        </Article>
+
+        <Article n={3} title="Description of Services">
+          <p>
+            {brand.name} operates an AI-powered software-as-a-service platform that analyzes stock charts and generates
+            technical and fundamental analysis outputs, including trend, key levels, indicators, signals, probability
+            scenarios, and related market context. The Service is provided strictly as an informational and educational
+            tool.
+          </p>
+          <p>
+            {brand.name} may also publish educational content, information products, and affiliate-linked recommendations
+            on its website and social-media channels. All such content is clearly identified where required by
+            applicable law.
+          </p>
           <p>
             <strong>
-              {brand.name} is not a financial advisor, investment adviser, broker, broker-dealer, or fiduciary, and
-              nothing in the Service constitutes financial, investment, trading, legal, tax, or accounting advice.
-            </strong>{" "}
-            The Service is provided strictly for educational and informational purposes.
+              The Service does not constitute financial advice, investment advice, trading advice, or any other type of
+              professional advice. See Article 8.
+            </strong>
           </p>
+        </Article>
+
+        <Article n={4} title="Subscription & Payment Terms">
+          <p>
+            Access to the Service requires a paid plan. {brand.name} currently offers a monthly Subscription (USD 40.00
+            per month, or the price displayed at the time of purchase) and a one-time Lifetime Access plan (USD 180.00,
+            or the price displayed at checkout). Payments are processed through {PAYMENT_PROCESSOR}.
+          </p>
+          <Sub title="4.1 Billing">
+            <p>
+              Subscription fees are billed automatically on the same date each billing period. By subscribing, the User
+              authorizes {COMPANY} and {PAYMENT_PROCESSOR} to charge the designated payment method on a recurring basis
+              until cancellation. Lifetime Access is charged once at the time of purchase.
+            </p>
+          </Sub>
+          <Sub title="4.2 Price Changes">
+            <p>
+              {COMPANY} reserves the right to modify pricing upon fourteen (14) days&rsquo; prior notice. Continued use
+              of the Service after the effective date of a price change constitutes acceptance of the new price. Price
+              changes do not affect the current paid period.
+            </p>
+          </Sub>
+          <Sub title="4.3 Failed Payments">
+            <p>
+              If a recurring payment fails, access to the Service may be suspended immediately. The User is responsible
+              for maintaining valid and current payment information.
+            </p>
+          </Sub>
+          <Sub title="4.4 Taxes">
+            <p>
+              All prices are exclusive of applicable taxes. The User is responsible for any applicable taxes, VAT, or
+              duties owed in their jurisdiction.
+            </p>
+          </Sub>
+        </Article>
+
+        <Article n={5} title="Refund Policy">
+          <p>
+            <strong>All sales are final. {COMPANY} maintains a strict no-refund policy as a general rule.</strong> By
+            completing a purchase, the User expressly acknowledges and agrees that fees are non-refundable except in the
+            two (2) strictly limited circumstances described below.
+          </p>
+          <Sub title="5.1 Eligible refund circumstances">
+            <p>A refund request will be considered only if all of the applicable conditions are met:</p>
+            <p>
+              <strong>(a) Total platform outage — technical malfunction.</strong> The User must demonstrate, with
+              timestamped screenshot evidence, error logs, and written confirmation from {brand.name} support, that the
+              Platform was completely non-functional and inaccessible for a continuous period of twenty-four (24) or more
+              consecutive hours. Partial degradation, slow performance, or dissatisfaction with Output quality does not
+              qualify. The User must have reported the issue to <a href={`mailto:${EMAIL}`}>{EMAIL}</a> within forty-eight
+              (48) hours of the incident and obtained a support ticket number. Retroactive claims are not accepted.
+            </p>
+            <p>
+              <strong>(b) Verified duplicate charge.</strong> The User must provide official bank or payment-processor
+              records clearly showing two identical charges for the same period, copies of both transaction
+              confirmations, and must submit the request within seven (7) calendar days of the duplicate charge. Only the
+              duplicate amount is refundable; the original charge is non-refundable.
+            </p>
+          </Sub>
+          <Sub title="5.2 Non-eligible circumstances — no exceptions">
+            <ul>
+              <li>change of mind or dissatisfaction with AI-generated analyses, signals, or Output;</li>
+              <li>financial or trading losses incurred from decisions made using the Platform;</li>
+              <li>failure to cancel a Subscription before the next billing cycle;</li>
+              <li>partial use of the Service during a billing period;</li>
+              <li>incompatibility with the User&rsquo;s device or internet connection;</li>
+              <li>dissatisfaction with features, updates, or changes to the Service;</li>
+              <li>claims submitted more than seven (7) calendar days after the disputed charge.</li>
+            </ul>
+          </Sub>
+          <Sub title="5.3 Refund request procedure">
+            <p>
+              All refund requests must be submitted in writing to <a href={`mailto:${EMAIL}`}>{EMAIL}</a> with the subject
+              line &ldquo;REFUND REQUEST — [Transaction ID]&rdquo; and must include the User&rsquo;s full name, account
+              email, transaction ID, the nature of the claim, and all supporting evidence. {COMPANY} will review requests
+              within ten (10) business days; approval is at its sole discretion.
+            </p>
+          </Sub>
+          <Sub title="5.4 Chargebacks">
+            <p>
+              Any unauthorized chargeback or payment dispute initiated without following the procedure above will result
+              in immediate and permanent account termination without notice, and may be pursued for damages,
+              administrative fees, and collection costs.
+            </p>
+          </Sub>
+        </Article>
+
+        <Article n={6} title="User Obligations & Acceptable Use">
+          <p>By using the Platform, the User agrees to:</p>
           <ul>
-            <li>We do not recommend that you buy, sell, or hold any security, and we do not solicit any transaction.</li>
-            <li>Any analysis, signal, score, probability, or level produced by the Service is the output of software and may be inaccurate, incomplete, delayed, or wrong. It must never be relied upon as the sole basis for any decision.</li>
-            <li>Trading and investing in financial markets involve a substantial risk of loss, including the loss of your entire investment. You may lose more than you invest when using leverage.</li>
-            <li>Past performance and back-tested or hypothetical results are not indicative of and do not guarantee future results.</li>
-            <li>You are solely and exclusively responsible for your own decisions and for any gains or losses you incur. Before acting, you should do your own research and consult a licensed financial professional.</li>
+            <li>provide accurate, current, and complete registration information;</li>
+            <li>maintain the confidentiality of account credentials and remain responsible for all activity under the account;</li>
+            <li>not share, resell, or transfer their access to any third party;</li>
+            <li>not scrape, copy, reverse-engineer, or reproduce any Output or Platform content for commercial purposes;</li>
+            <li>not use the Platform for any unlawful purpose or in violation of applicable regulations;</li>
+            <li>comply with all financial and other regulations applicable in their jurisdiction.</li>
           </ul>
-        </Article>
-
-        <Article n={3} title="Eligibility">
           <p>
-            You must be at least 18 years old and able to form a binding contract to use the Service. You may not use the
-            Service if you are barred from doing so under the laws of the United States or any other applicable
-            jurisdiction, or if you are located in, or are a resident of, a country or region subject to comprehensive
-            sanctions. By using the Service, you represent and warrant that you meet these requirements.
+            {COMPANY} reserves the right to suspend or terminate any account found in violation of these obligations,
+            without refund or prior notice.
           </p>
         </Article>
 
-        <Article n={4} title="Accounts">
+        <Article n={7} title="Intellectual Property">
           <p>
-            To use most features you must create an account and provide accurate, current, and complete information. You
-            are responsible for keeping your credentials confidential and for all activity that occurs under your
-            account. Notify us immediately at <a href={`mailto:${EMAIL}`}>{EMAIL}</a> of any unauthorized use. We may
-            refuse, suspend, or terminate accounts at our discretion, including for any breach of these Terms.
+            All content, software, algorithms, models, brand elements, analyses, and materials on the Platform are the
+            exclusive intellectual property of {COMPANY} or its licensors. No license to any intellectual property is
+            granted to the User other than a limited, non-exclusive, non-transferable, revocable right to access the
+            Service for personal, non-commercial use during an active paid period. All rights not expressly granted are
+            reserved.
           </p>
         </Article>
 
-        <Article n={5} title="Subscriptions, billing, and price changes">
-          <p>
-            The Service is offered on paid plans, including a recurring monthly subscription and a one-time lifetime
-            plan. Prices are shown at checkout. Payments are processed by third-party payment providers; by subscribing
-            you authorize us and our providers to charge your payment method.
+        <Article n={8} title="Disclaimer of Financial Advice & Limitation of Liability">
+          <p className="uppercase">
+            The Platform and all Content generated by {brand.name} are for informational and educational purposes only.
+            Nothing on {SITE_DOMAIN} or any associated channel constitutes financial advice, investment advice, trading
+            recommendations, or any form of regulated financial service.
           </p>
-          <ul>
-            <li><strong>Monthly plan:</strong> billed in advance and renews automatically each billing period until cancelled. You authorize recurring charges until you cancel.</li>
-            <li><strong>Lifetime plan:</strong> a single one-time payment for access for the lifetime of the Service, subject to these Terms.</li>
-            <li>You are responsible for all applicable taxes. We may change our prices or plans on a going-forward basis with reasonable notice; changes do not affect the current paid period.</li>
-          </ul>
-        </Article>
-
-        <Article n={6} title="Cancellation and refunds">
-          <p>
-            You may cancel a monthly subscription at any time from your account; cancellation stops future renewals and
-            your access continues until the end of the current paid period. Except where required by applicable law,
-            payments are non-refundable and we do not provide refunds or credits for partial periods, unused time, or
-            lifetime purchases. We may, at our sole discretion, offer a refund in individual cases.
+          <p className="uppercase">
+            {COMPANY}, its officers, members, employees, and affiliates shall not be liable for any direct, indirect,
+            incidental, special, consequential, or punitive damages arising from: (i) use of or inability to use the
+            Service; (ii) trading or investment decisions made based on Platform Content; (iii) loss of profits, data, or
+            goodwill; or (iv) any unauthorized access to or alteration of User data.
+          </p>
+          <p className="uppercase">
+            To the maximum extent permitted by applicable law, {COMPANY}&rsquo;s total liability shall not exceed the
+            amount paid by the User to {COMPANY} in the thirty (30) days preceding the event giving rise to the claim.
           </p>
         </Article>
 
-        <Article n={7} title="Acceptable use">
-          <p>You agree not to, and not to permit anyone to:</p>
-          <ul>
-            <li>use the Service for any unlawful, fraudulent, or abusive purpose, or in violation of any law or regulation;</li>
-            <li>copy, scrape, resell, sublicense, or commercially exploit the Service or its outputs without our written permission;</li>
-            <li>reverse engineer, decompile, or attempt to extract the source code, models, or underlying logic of the Service;</li>
-            <li>interfere with, overload, or disrupt the Service, or circumvent any access, usage, or security limits;</li>
-            <li>upload content that is illegal, infringing, malicious, or that you do not have the right to submit;</li>
-            <li>use automated means to access the Service except through interfaces we expressly provide.</li>
-          </ul>
-        </Article>
-
-        <Article n={8} title="Your content">
+        <Article n={9} title="Affiliate Disclosure">
           <p>
-            You retain ownership of the charts, screenshots, and other materials you submit (<strong>&ldquo;Your
-            Content&rdquo;</strong>). You grant us a worldwide, non-exclusive, royalty-free license to host, process, and
-            use Your Content solely to operate, provide, secure, and improve the Service. You represent that you have the
-            rights necessary to submit Your Content and that it does not violate any law or third-party right.
+            {brand.name} may publish affiliate links, sponsored content, or partnership recommendations on {SITE_DOMAIN}{" "}
+            and associated social-media channels. Where compensation is received in exchange for a promotion, this will
+            be disclosed in compliance with the U.S. Federal Trade Commission (FTC) Endorsement Guidelines (16 CFR Part
+            255). Affiliate relationships do not influence the editorial independence of {brand.name}&rsquo;s analysis
+            tools.
           </p>
         </Article>
 
-        <Article n={9} title="Intellectual property">
+        <Article n={10} title="Privacy & Data Protection">
           <p>
-            The Service, including its software, models, design, text, graphics, and the {brand.name} name and logo, is
-            owned by {COMPANY} or its licensors and is protected by intellectual-property laws. Subject to these Terms,
-            we grant you a limited, non-exclusive, non-transferable, revocable license to use the Service for your own
-            personal, non-commercial purposes. All rights not expressly granted are reserved.
+            The collection and processing of personal data is governed by {brand.name}&rsquo;s Privacy Policy, available
+            at {SITE_DOMAIN}/privacy-policy. By using the Service, the User consents to the data practices described
+            therein.
           </p>
         </Article>
 
-        <Article n={10} title="Third-party data and services">
+        <Article n={11} title="Modifications to the Service & Terms">
           <p>
-            The Service relies on market, price, fundamental, and other data obtained from third-party sources, and may
-            link to or integrate third-party services. We do not control and are not responsible for the accuracy,
-            completeness, timeliness, or availability of third-party data or services, and we make no warranty regarding
-            them. Your use of any third-party service is governed by that party&rsquo;s own terms.
+            {COMPANY} reserves the right to modify, suspend, or discontinue the Service at any time. These Terms may be
+            updated periodically. The User will be notified of material changes by email or by a notice on the Platform.
+            Continued use of the Service after notification constitutes acceptance of the revised Terms.
           </p>
         </Article>
 
-        <Article n={11} title="Disclaimer of warranties">
+        <Article n={12} title="Governing Law & Dispute Resolution">
           <p>
-            The Service and all outputs are provided <strong>&ldquo;as is&rdquo;</strong> and{" "}
-            <strong>&ldquo;as available&rdquo;</strong>, without warranties of any kind, whether express, implied, or
-            statutory, including any implied warranties of merchantability, fitness for a particular purpose,
-            non-infringement, accuracy, or uninterrupted or error-free operation. We do not warrant that the Service or
-            any output will be accurate, reliable, profitable, or suitable for your purposes.
+            These Terms are governed by the laws of the State of {STATE}, United States of America, without regard to
+            conflict-of-law principles.
+          </p>
+          <p>
+            Any dispute arising from these Terms shall first be submitted to good-faith negotiation. Failing resolution
+            within thirty (30) days, the dispute shall be submitted to binding arbitration in {ARBITRATION_VENUE}, under
+            the rules of the American Arbitration Association (AAA). The User waives any right to participate in a class
+            action lawsuit or class-wide arbitration.
           </p>
         </Article>
 
-        <Article n={12} title="Limitation of liability">
+        <Article n={13} title="Contact">
+          <p>For any questions regarding these Terms, please contact:</p>
           <p>
-            To the maximum extent permitted by law, in no event will {COMPANY}, its officers, members, employees, or
-            agents be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or for
-            any loss of profits, trading or investment losses, revenue, data, or goodwill, arising out of or related to
-            your use of (or inability to use) the Service, even if advised of the possibility of such damages. To the
-            maximum extent permitted by law, our total aggregate liability for all claims relating to the Service will
-            not exceed the greater of the amount you paid us for the Service in the three (3) months before the event
-            giving rise to the claim, or USD 100.
-          </p>
-        </Article>
-
-        <Article n={13} title="Indemnification">
-          <p>
-            You agree to indemnify, defend, and hold harmless {COMPANY} and its representatives from and against any
-            claims, damages, liabilities, losses, and expenses (including reasonable legal fees) arising out of or
-            related to your use of the Service, Your Content, your trading or investment decisions, or your breach of
-            these Terms or of any law or third-party right.
-          </p>
-        </Article>
-
-        <Article n={14} title="Termination">
-          <p>
-            You may stop using the Service at any time. We may suspend or terminate your access at any time, with or
-            without notice, including for breach of these Terms or where we reasonably believe your use poses a risk.
-            Upon termination, your right to use the Service ends immediately. Sections that by their nature should
-            survive termination (including Sections 2, 8&ndash;13, and 15&ndash;16) will survive.
-          </p>
-        </Article>
-
-        <Article n={15} title="Changes to the Terms and the Service">
-          <p>
-            We may modify the Service or these Terms from time to time. When we make material changes to these Terms, we
-            will update the &ldquo;Last updated&rdquo; date above and, where appropriate, provide additional notice. Your
-            continued use of the Service after changes take effect constitutes acceptance of the revised Terms.
-          </p>
-        </Article>
-
-        <Article n={16} title="Governing law and dispute resolution">
-          <p>
-            These Terms are governed by the laws of the State of Wyoming, United States, without regard to its
-            conflict-of-laws rules. You agree that any dispute arising out of or relating to these Terms or the Service
-            will be resolved on an individual basis, and you waive any right to participate in a class or representative
-            action. Subject to applicable law, the state and federal courts located in Wyoming will have jurisdiction
-            over any dispute not subject to arbitration.
-          </p>
-        </Article>
-
-        <Article n={17} title="Miscellaneous">
-          <p>
-            These Terms, together with our Privacy Policy, are the entire agreement between you and us regarding the
-            Service. If any provision is found unenforceable, the remaining provisions remain in effect. Our failure to
-            enforce any right is not a waiver. You may not assign these Terms without our consent; we may assign them in
-            connection with a merger, acquisition, or sale of assets. We are not liable for any delay or failure caused
-            by events beyond our reasonable control.
-          </p>
-        </Article>
-
-        <Article n={18} title="Contact">
-          <p>
-            Questions about these Terms can be sent to <a href={`mailto:${EMAIL}`}>{EMAIL}</a>.
-          </p>
-          <p>
-            {COMPANY}
+            {COMPANY} — {brand.name} Legal
             <br />
             {ADDRESS}
+            <br />
+            Email: <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            <br />
+            Website: <a href={siteUrl}>{SITE_DOMAIN}</a>
           </p>
         </Article>
+
+        <p className="mt-10 border-t border-white/10 pt-8 text-center text-xs text-neutral-500">
+          Last updated: {EFFECTIVE} — {COMPANY}, all rights reserved.
+        </p>
       </article>
       <Footer />
     </main>
