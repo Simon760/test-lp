@@ -246,6 +246,7 @@ export const footer = {
         { label: "Terms of Service", href: "/terms-of-service" },
         { label: "Privacy Policy", href: "/privacy-policy" },
         { label: "Risk Disclosure", href: "/risk-disclosure" },
+        { label: "Disclaimer", href: "/disclaimer" },
       ],
     },
   ],
