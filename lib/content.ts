@@ -20,14 +20,14 @@ export const nav = {
 };
 
 export const hero = {
-  badge: "Trusted by 1,300+ active traders · 4.5★ on Trustpilot",
+  badge: "Trusted by 800+ active traders · rated 4.5★",
   title: "Pro-level analysis,",
   titleAccent: "in seconds.",
   titleAfter: "Just upload a screenshot.",
   subtitle:
     "Reads any chart and tells you exactly what to do — the trend, the key levels, and a clear plan backed by probabilities. No more second-guessing TradingView.",
   ctaSupport: "Cancel anytime — no lock-in.",
-  proof: "Join 1,300+ profitable traders",
+  proof: "Join 800+ profitable traders",
 };
 
 export const trustBar = {
@@ -186,9 +186,9 @@ export const testimonials: {
   rating: string;
   items: Testimonial[];
 } = {
-  title: "What 1,300+ traders are saying",
+  title: "What 800+ traders are saying",
   subtitle: "Real results from real users — verified screenshots included.",
-  rating: "4.5 out of 5 on Trustpilot",
+  rating: "Rated 4.5 out of 5",
   items: [
     {
       name: "Daniel R.",
@@ -302,7 +302,7 @@ export const faq = {
 export const finalCta = {
   title: "Ready to read the market like a pro?",
   subtitle:
-    "Join 1,300+ traders who turned guesswork into a data-backed plan.",
+    "Join 800+ traders who turned guesswork into a data-backed plan.",
 };
 
 export const footer = {
