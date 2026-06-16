@@ -6,15 +6,21 @@ export function Button({
   href,
   children,
   variant = "primary",
+  size = "md",
   className = "",
 }: {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "light";
+  size?: "sm" | "md";
   className?: string;
 }) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ring";
+    "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-ring";
+  const sizes = {
+    sm: "px-5 py-2.5 text-sm",
+    md: "px-6 py-3 text-sm",
+  };
   const variants = {
     primary:
       "bg-accent text-ink shadow-[0_10px_34px_-10px_rgba(31,217,107,0.6)] hover:bg-[#34e081] hover:-translate-y-0.5",
@@ -24,7 +30,7 @@ export function Button({
       "bg-white text-ink shadow-soft hover:-translate-y-0.5 hover:bg-neutral-100",
   };
   return (
-    <Link href={href} className={`${base} ${variants[variant]} ${className}`}>
+    <Link href={href} className={`${base} ${sizes[size]} ${variants[variant]} ${className}`}>
       {children}
     </Link>
   );

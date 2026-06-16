@@ -21,11 +21,11 @@ export const nav = {
 
 export const hero = {
   badge: "Trusted by 1,300+ active traders · 4.5★ on Trustpilot",
-  title: "Pro-level stock analysis,",
+  title: "Pro-level analysis,",
   titleAccent: "in seconds.",
   titleAfter: "Just upload a screenshot.",
   subtitle:
-    "Reads any stock chart and tells you exactly what to do — the trend, the key levels, and a clear plan backed by probabilities. No more second-guessing TradingView.",
+    "Reads any chart and tells you exactly what to do — the trend, the key levels, and a clear plan backed by probabilities. No more second-guessing TradingView.",
   ctaSupport: "Cancel anytime — no lock-in.",
   proof: "Join 1,300+ profitable traders",
 };

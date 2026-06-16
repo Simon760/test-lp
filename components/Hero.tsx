@@ -32,7 +32,7 @@ export default function Hero() {
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-400">{hero.subtitle}</p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Button href={brand.appUrl} className="w-full sm:w-auto">
+            <Button href={brand.appUrl} size="sm" className="w-full sm:w-auto">
               {brand.ctaPrimary} →
             </Button>
           </div>
