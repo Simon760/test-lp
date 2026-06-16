@@ -171,17 +171,101 @@ export const pricing = {
   ],
 };
 
-export const testimonials = {
+export type Testimonial = {
+  name: string;
+  role: string;
+  img: number;
+  quote: string;
+  asset?: string; // e.g. "XAU/USD" — shown as a chip on proof cards
+  proof?: string; // result screenshot path (under /public)
+};
+
+export const testimonials: {
+  title: string;
+  subtitle: string;
+  rating: string;
+  items: Testimonial[];
+} = {
   title: "What 1,300+ traders are saying",
-  subtitle: "Real results from real users.",
+  subtitle: "Real results from real users — verified screenshots included.",
   rating: "4.5 out of 5 on Trustpilot",
   items: [
-    { name: "Marcus T.", role: "Day trader", img: 11, quote: "First day using it and I was already greener than my whole last month." },
-    { name: "Sofia R.", role: "Swing trader", img: 5, quote: "It does the chart work for me — I just check the plan and act. Massive time-saver." },
-    { name: "James K.", role: "Investor", img: 33, quote: "The fundamentals layer is what sold me. No other tool gives me the full picture." },
-    { name: "Aisha M.", role: "Part-time trader", img: 9, quote: "Went from guessing to having an actual plan A and plan B on every trade." },
-    { name: "Daniel P.", role: "Beginner", img: 60, quote: "Three days in and already more confident on every single entry." },
-    { name: "Elena V.", role: "Day trader", img: 16, quote: "The probability scenarios changed how I size my positions. Game changer." },
+    {
+      name: "Daniel R.",
+      role: "Beginner",
+      img: 13,
+      quote:
+        "I was skeptical as a complete beginner, but within minutes I had a full breakdown of the stock — trend, key levels and a clear entry. It explains the why behind every call, so I'm actually learning while I trade.",
+    },
+    {
+      name: "Liam C.",
+      role: "Gold trader",
+      img: 60,
+      asset: "XAU/USD",
+      proof: "/testimonials/gold-swings.webp",
+      quote:
+        "I mainly trade gold, and UpsideGPT nails the key levels on XAU/USD. Closed two clean swing buys this week right off its entry zones — the read on the trend was spot on.",
+    },
+    {
+      name: "James K.",
+      role: "Investor",
+      img: 33,
+      quote:
+        "What sold me is that it doesn't just read the candles — it pulls in earnings, analyst targets and the news. It flagged an upcoming earnings date before I sized in, which honestly saved me from a bad entry.",
+    },
+    {
+      name: "Sophie M.",
+      role: "Swing trader",
+      img: 5,
+      quote:
+        "Started just 4 days ago and I already feel way more confident. UpsideGPT does the chart work I used to spend hours on, and the fundamentals layer caught a P/E red flag I would've completely missed.",
+    },
+    {
+      name: "Victor H.",
+      role: "Gold trader",
+      img: 68,
+      asset: "XAU/USD",
+      proof: "/testimonials/gold-tp.webp",
+      quote:
+        "I use it daily on gold. The entries around support and resistance are genuinely precise, and having the stop-loss and target mapped out for each XAU/USD setup keeps my risk tight. Hit my take-profit cleanly on this one.",
+    },
+    {
+      name: "Aisha N.",
+      role: "Part-time trader",
+      img: 9,
+      quote:
+        "I went from guessing to actually having a plan A and a plan B on every position. The bull and bear scenarios with probabilities completely changed how I manage risk.",
+    },
+    {
+      name: "Marcus T.",
+      role: "Day trader",
+      img: 12,
+      quote:
+        "Best AI tool I've tried for stocks, and I've tested a few. The entry zones are genuinely precise and the macro context is always up to date. 100% recommend.",
+    },
+    {
+      name: "Nora F.",
+      role: "Gold trader",
+      img: 45,
+      asset: "XAU/USD",
+      proof: "/testimonials/gold-account.webp",
+      quote:
+        "Trading gold around news used to terrify me. The macro read on XAU/USD — rates, the dollar, sentiment — is what turned it around. I funded a small account to test it and pulled out well over what I put in.",
+    },
+    {
+      name: "Elena V.",
+      role: "Day trader",
+      img: 16,
+      quote:
+        "Practical and fast — perfect when you don't want to stare at charts all day. I screenshot a ticker, it does almost everything for me. Took my cleanest trade of the month off one of its setups.",
+    },
+    {
+      name: "Tom B.",
+      role: "Investor",
+      img: 53,
+      quote:
+        "Became consistently profitable for the first time thanks to this. It helped me understand stocks like never before instead of just following random tips. Wish I'd found it a year ago.",
+    },
   ],
 };
 
