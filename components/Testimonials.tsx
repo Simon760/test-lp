@@ -2,6 +2,11 @@ import Image from "next/image";
 import { Section, Stars } from "./ui";
 import { testimonials } from "@/lib/content";
 
+/* GitHub Pages serves the site under a basePath (e.g. /test-lp).
+   next/image with `unoptimized` does NOT prepend it, so we add it
+   manually for local assets — same pattern as the Logo component. */
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 /* intrinsic pixel sizes of the proof screenshots (prevents layout shift) */
 const PROOF_DIMS: Record<string, { w: number; h: number }> = {
   "/testimonials/gold-swings.webp": { w: 368, h: 448 },
@@ -52,13 +57,14 @@ export default function Testimonials() {
               {t.proof && dims && (
                 <div className="mb-4 overflow-hidden rounded-2xl border border-white/10 ring-1 ring-inset ring-white/[0.04]">
                   <VerifiedBadge asset={t.asset} />
-                  <Image
-                    src={t.proof}
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`${BASE}${t.proof}`}
                     width={dims.w}
                     height={dims.h}
                     alt={`Verified ${t.asset} result from ${t.name}`}
-                    className="h-auto w-full"
-                    unoptimized
+                    loading="lazy"
+                    className="block h-auto w-full"
                   />
                 </div>
               )}
