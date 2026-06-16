@@ -26,6 +26,8 @@ function LogoImg({ file, alt, h }: { file: string; alt: string; h: string }) {
       <img
         src={`${BASE}/logos/${file}`}
         alt={alt}
+        loading="lazy"
+        decoding="async"
         className={`${h} max-w-full object-contain opacity-50 transition-opacity duration-300 hover:opacity-90 [filter:brightness(0)_invert(1)]`}
       />
     </span>

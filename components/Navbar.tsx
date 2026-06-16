@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui";
 import { brand, nav } from "@/lib/content";
 
@@ -12,6 +12,23 @@ export default function Navbar() {
   // sliding hover highlight (TrendTrack-style)
   const [hl, setHl] = useState({ left: 0, width: 0, opacity: 0 });
   const listRef = useRef<HTMLDivElement>(null);
+
+  // Defer the 2.4MB animated-logo video off the critical path: show a light
+  // static mark first, then mount the video once the browser is idle.
+  const [showVideo, setShowVideo] = useState(false);
+  useEffect(() => {
+    const ric =
+      (window as typeof window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number })
+        .requestIdleCallback;
+    if (ric) {
+      const id = ric(() => setShowVideo(true), { timeout: 2500 });
+      return () => {
+        (window as typeof window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback?.(id);
+      };
+    }
+    const t = setTimeout(() => setShowVideo(true), 1500);
+    return () => clearTimeout(t);
+  }, []);
 
   const moveTo = (el: HTMLElement) => {
     const parent = listRef.current;
@@ -33,15 +50,24 @@ export default function Navbar() {
               className="relative block h-10 overflow-hidden mix-blend-screen"
               style={{ aspectRatio: "930 / 720" }}
             >
-              <video
-                src={`${BASE}/brand/logo-animated.mp4`}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute max-w-none"
-                style={{ width: "134.2%", left: "-17.2%", top: "-47.2%" }}
-              />
+              {showVideo ? (
+                <video
+                  src={`${BASE}/brand/logo-animated.mp4`}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute max-w-none"
+                  style={{ width: "134.2%", left: "-17.2%", top: "-47.2%" }}
+                />
+              ) : (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={`${BASE}/brand/mark.png`}
+                  alt=""
+                  className="absolute inset-0 h-full w-full object-contain"
+                />
+              )}
             </span>
             <span className="text-lg font-extrabold tracking-tight text-white">{brand.name}</span>
           </a>

@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { Button, Section, Stars } from "./ui";
 import { brand, hero } from "@/lib/content";
+
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Hero() {
   return (
@@ -41,14 +42,15 @@ export default function Hero() {
           <div className="mt-8 flex items-center justify-center gap-3">
             <div className="flex -space-x-2">
               {[12, 32, 45, 68].map((id) => (
-                <Image
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
                   key={id}
-                  src={`https://i.pravatar.cc/72?img=${id}`}
+                  src={`${BASE}/avatars/${id}.jpg`}
                   alt=""
                   width={36}
                   height={36}
+                  decoding="async"
                   className="h-9 w-9 rounded-full border-2 border-ink object-cover"
-                  unoptimized
                 />
               ))}
             </div>

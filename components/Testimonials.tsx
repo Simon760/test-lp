@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Section, Stars } from "./ui";
 import { testimonials } from "@/lib/content";
 
@@ -75,13 +74,15 @@ export default function Testimonials() {
               </blockquote>
 
               <figcaption className="mt-5 flex items-center gap-3">
-                <Image
-                  src={`https://i.pravatar.cc/72?img=${t.img}`}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={`${BASE}/avatars/${t.img}.jpg`}
                   alt=""
                   width={40}
                   height={40}
+                  loading="lazy"
+                  decoding="async"
                   className="h-10 w-10 rounded-full object-cover"
-                  unoptimized
                 />
                 <div>
                   <p className="text-sm font-semibold text-white">{t.name}</p>
