@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
 
         {/* product preview */}
-        <div className="relative mx-auto mt-16 max-w-4xl animate-fade-up [animation-delay:150ms]">
+        <div className="relative mx-auto mt-16 max-w-6xl animate-fade-up [animation-delay:150ms]">
           {/* just the demo video — it already carries its own framing */}
           <div className="relative aspect-video w-full overflow-hidden rounded-[2rem] shadow-[0_40px_120px_-40px_rgba(31,217,107,0.35)]">
             <iframe
