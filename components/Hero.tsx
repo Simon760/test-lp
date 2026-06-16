@@ -62,9 +62,9 @@ export default function Hero() {
         {/* product preview */}
         <div className="relative mx-auto mt-16 max-w-4xl animate-fade-up [animation-delay:150ms]">
           {/* just the demo video — it already carries its own framing */}
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl shadow-[0_40px_120px_-40px_rgba(31,217,107,0.35)]">
+          <div className="relative aspect-video w-full overflow-hidden rounded-[2rem] shadow-[0_40px_120px_-40px_rgba(31,217,107,0.35)]">
             <iframe
-              src="https://player.vimeo.com/video/1201800305?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
+              src="https://player.vimeo.com/video/1201832523?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
               title={`${brand.name} demo`}
               allow="autoplay; fullscreen; picture-in-picture"
               className="absolute inset-0 h-full w-full"
