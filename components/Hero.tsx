@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button, Section, Stars } from "./ui";
 import { brand, hero } from "@/lib/content";
-import DemoCard from "./DemoCard";
 
 export default function Hero() {
   return (
@@ -72,8 +71,13 @@ export default function Hero() {
                   {brand.name.toLowerCase()} — chart analysis
                 </span>
               </div>
-              <div className="p-4 text-left sm:p-5">
-                <DemoCard />
+              <div className="relative aspect-video w-full bg-black">
+                <iframe
+                  src="https://player.vimeo.com/video/1201800305?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1"
+                  title={`${brand.name} demo`}
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  className="absolute inset-0 h-full w-full"
+                />
               </div>
             </div>
           </div>
